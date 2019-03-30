@@ -1,0 +1,8 @@
+{
+  "name": "ejsimple",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "048a9077"
+}
