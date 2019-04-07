@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "693483876041",
+    "firebase_url": "https://milogin-1a569.firebaseio.com",
+    "project_id": "milogin-1a569",
+    "storage_bucket": "milogin-1a569.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693483876041:android:73d3f2cbb49d6715",
+        "android_client_info": {
+          "package_name": "org.apache.cordova.unittests"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWB9UgUG7XxzHdDzCDjZL3HxZ0qM5BeoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693483876041-0ss5psohohbtt64h9qech8uo30e6s0qb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
