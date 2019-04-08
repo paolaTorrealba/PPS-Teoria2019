@@ -16,9 +16,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-  constructor(private router: Router) {
-    this.router.errorHandler = (error: any) => {
-        this.router.navigate(['404']); // or redirect to default route
-    }
-  }
+  constructor(private router: Router) { }
  }
