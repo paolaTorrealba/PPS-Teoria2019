@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule' },
   { path: 'error', loadChildren: './componentes/error/error.module#ErrorPageModule' },
   { path: 'usuario', loadChildren: './componentes/usuario/usuario.module#UsuarioPageModule' },
+  { path: 'apagar', loadChildren: './componentes/apagar/apagar.module#ApagarPageModule' },
 ];
 
 @NgModule({
