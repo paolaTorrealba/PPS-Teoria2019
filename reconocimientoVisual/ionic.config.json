@@ -1,5 +1,7 @@
 {
   "name": "reconocimientoVisual",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -12,12 +12,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
 
 
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
+  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar) {
     this.initializeApp();
+      this. reproducirSonido();
   }
 
   initializeApp() {
@@ -26,5 +23,15 @@ export class AppComponent {
       this.splashScreen.hide();
 
     });
+  }
+
+   reproducirSonido(){
+    let sonido = new Audio();
+    sonido.src="assets/sonido/sonido.mp3";
+    sonido.load();
+    sonido.play();
+    timer(6000).subscribe(() =>  sonido.muted=true )
+    
+
   }
 }
