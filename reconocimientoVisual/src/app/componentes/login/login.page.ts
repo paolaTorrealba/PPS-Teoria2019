@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { timer} from 'rxjs/observable/timer';
+import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,12 @@ export class LoginPage implements OnInit {
 email: string;
 password: string;
 
-showSplash = true;
-sound = true;
+//showSplash = true;
+//sound = true;
   constructor( private authService:AuthService, public router: Router) {}
-
+ mostrarLogin=false;
   ngOnInit() { 
-    timer(3000).subscribe(() => this.showSplash = false  )
+     timer(6100).subscribe(() => this.mostrarLogin = true  )
     
   }
 

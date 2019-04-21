@@ -14,10 +14,12 @@ import { AngularFireModule} from "@angular/fire";
 import { AngularFireAuthModule} from "@angular/fire/auth";
 import { RouterModule} from '@angular/router';
 
-import { SplashComponent } from './componentes/splash/splash.component'; //sami
+import { SplashComponent } from './componentes/splash/splash.component';
+
+
 
 @NgModule({
-  declarations: [AppComponent, SplashComponent], //agrego SplashComponent - sami
+  declarations: [AppComponent,SplashComponent], 
   entryComponents: [],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),

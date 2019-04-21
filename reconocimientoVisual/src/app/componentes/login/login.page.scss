@@ -109,13 +109,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
- background-image: url(../../../assets/images/splash-animado.gif);
+  // background-image: url(../../../assets/images/splash-animado.gif);
+  
 }
 
 .spinner {
   width: 40px;
   height: 40px;
-  background-color: #333;
+  //background-color: #333;
+  background-color: #98D8FF;
 
   margin: 100px auto;
   -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
@@ -144,3 +146,11 @@ body {
 .nav{
   background-color: #98D8FF;
 }
+
+.datos{  
+    grid-row: 1;
+    align-self: center;
+    text-align: center;
+    color: black;
+} 
+  
