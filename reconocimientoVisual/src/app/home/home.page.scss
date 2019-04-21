@@ -1,4 +1,4 @@
-body {
+/*body {
 	height: 100vh;
 	background: #19092d;
 	display: flex;
@@ -13,7 +13,7 @@ button{
 	cursor: pointer;
 }
 
-/* PIERWSZY SPOSOB WYKORZYSTANIE CIENIA */
+/* PIERWSZY SPOSOB WYKORZYSTANIE CIENIA 
 .first{
 	background: #19c3d6;
 	box-shadow: inset 0px 0px 0px 0px #ff0099;
@@ -23,7 +23,7 @@ button{
 	box-shadow: inset 0px -200px 0px 0px #ff0099;
 }
 
-/* DRUGI SPOSOB DLUZSZY ALE BARDZIEJ UNIWERSALNY*/
+/* DRUGI SPOSOB DLUZSZY ALE BARDZIEJ UNIWERSALNY
 .sec{
 	background: none;
 	position: relative;
@@ -53,4 +53,4 @@ button{
 
 .my-custom-menu {
     --width: 500px;
-  }
+  }*/

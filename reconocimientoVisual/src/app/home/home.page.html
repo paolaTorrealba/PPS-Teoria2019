@@ -1,68 +1,54 @@
-<ion-menu side="start" menuId="first">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Start Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
+<!--<ion-header *ngIf="mostrarHome">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Fotos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="mostrarHome">
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-icon [name]="item.icon" slot="start"></ion-icon>
+      {{item.title}}
+      <div class="item-note" slot="end">
+        {{item.note}}
+      </div>
+    </ion-item>
+  </ion-list>
+
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title }}</b>
+    </div>
+  -->
+  <!--</ion-content>  -->
+  <!--<div id="card__home" class="card">
+    <div id="card-content">
+      <div id="card-title">
+        <h2>BIENVENIDO</h2>
+        <div class="underline-title underline-home"></div>
+      </div>
+    </div>
+</div>-->
+<div  class="grid-container-home">
+    
+    <button id="cosas_lindas" class="btn-home">
+      <span class="icon">
+        <img class="img-lindo" src="./assets/images/ok.png" alt="">  
+      </span>     
+    </button>
+    
+    <button id="cosas_feas" class="btn-home">
+      <span class="icon">
+        <img class="img-lindo" src="./assets/images/no.png" alt="">  
+      </span>
+     </button>
   
-  <ion-menu side="start" menuId="custom" class="my-custom-menu">
-    <ion-header>
-      <ion-toolbar color="tertiary">
-        <ion-title>Custom Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-  
-  <ion-menu side="end" type="push">
-    <ion-header>
-      <ion-toolbar color="danger">
-        <ion-title>End Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-  
-  <ion-router-outlet main></ion-router-outlet>   
-   <ion-grid>
-    <ion-row>
-      <ion-col>
-          <button class="first">
-              
-              <ion-icon name="checkmark-circle"></ion-icon>
-          </button>
-          
-      </ion-col>
-      <ion-col>
-          <button class="sec" >            
-              <ion-icon name="close"></ion-icon>
-            </button>
-      </ion-col>    
-    </ion-row>
-    </ion-grid>
+    <!--input id="cosas_lindas" type="button" value="COSAS LINDAS">
+    <input id="cosas_feas" type="button" value="COSAS FEAS"-->
+ <!-- angry/happy(grin, laugh) -->
+
+</div>

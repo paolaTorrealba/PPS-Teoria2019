@@ -5,10 +5,12 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule' },
-  { path: 'error', loadChildren: './componentes/error/error.module#ErrorPageModule' },
-  { path: 'menu', loadChildren: './componentes/menu/menu.module#MenuPageModule' },
+  { path: 'error', loadChildren: './componentes/error/error.module#ErrorPageModule' }, 
   { path: 'primera', loadChildren: './componentes/primera/primera.module#PrimeraPageModule' },
   { path: 'segunda', loadChildren: './componentes/segunda/segunda.module#SegundaPageModule' },
+  { path: 'lista', loadChildren: './pages/lista/lista.module#ListaPageModule' },
+  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
+
 ];
 
 @NgModule({

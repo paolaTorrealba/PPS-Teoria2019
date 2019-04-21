@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { timer} from 'rxjs/observable/timer';
-import { timingSafeEqual } from 'crypto';
+//import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-login',
