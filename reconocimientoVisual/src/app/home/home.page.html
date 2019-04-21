@@ -1,18 +1,68 @@
-
-<ion-content padding>   
-  <ion-grid>
+<ion-menu side="start" menuId="first">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Start Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-menu side="start" menuId="custom" class="my-custom-menu">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Custom Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-menu side="end" type="push">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>End Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-router-outlet main></ion-router-outlet>   
+   <ion-grid>
     <ion-row>
-    <ion-col size="6">        
-       
-      <ion-card>
-             <ion-img src="assets/images/platillos.png"></ion-img>
-        </ion-card>  
-    </ion-col>    
-    <ion-col size="6">               
-        <ion-card>
-               <ion-img src="assets/images/platillos.png"></ion-img>
-          </ion-card>  
+      <ion-col>
+          <button class="first">
+              
+              <ion-icon name="checkmark-circle"></ion-icon>
+          </button>
+          
+      </ion-col>
+      <ion-col>
+          <button class="sec" >            
+              <ion-icon name="close"></ion-icon>
+            </button>
       </ion-col>    
     </ion-row>
-  </ion-grid>      
-</ion-content>
+    </ion-grid>
