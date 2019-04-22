@@ -19,20 +19,15 @@ password: string;
   constructor( private authService:AuthService, public router: Router) {}
  mostrarLogin=false;
   ngOnInit() { 
-     timer(6100).subscribe(() => this.mostrarLogin = true  )
+     timer(3000).subscribe(() => this.mostrarLogin = true  )
     
   }
 
   onSubmitLogin(){
-    //console.log("estas en la fucion")
-    this.authService.login(this.email,this.password).then (res => {
-        this.router.navigate(['/home']);
-
-       
-  }).catch(err => this.router.navigate(['/error'])); 
-   
+      //console.log("estas en la fucion")
+      this.authService.login(this.email,this.password).then (res => {
+          this.router.navigate(['/home']);       
+    }).catch(err => this.router.navigate(['/error']));    
   }
-
-
-  
+ 
 }

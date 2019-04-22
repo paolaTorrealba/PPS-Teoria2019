@@ -15,6 +15,10 @@ import { AngularFireAuthModule} from "@angular/fire/auth";
 import { RouterModule} from '@angular/router';
 
 import { SplashComponent } from './componentes/splash/splash.component';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+
+//agrego esto por el video
 
 
 
@@ -26,9 +30,12 @@ import { SplashComponent } from './componentes/splash/splash.component';
     AngularFireAuthModule,RouterModule.forRoot([]),
     BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
+    Camera, 
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ImagePicker,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    
   ],
   bootstrap: [AppComponent]
 })

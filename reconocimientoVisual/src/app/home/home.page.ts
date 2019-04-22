@@ -30,10 +30,11 @@ export class HomePage {
  
 
 }*/
-/*
+
 import { Component, OnInit } from '@angular/core';
 import { timer} from 'rxjs/observable/timer';
 import { SourceNode } from 'source-list-map';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -41,7 +42,7 @@ import { SourceNode } from 'source-list-map';
   styleUrls: ['home.page.scss']
 })
 export class HomePage  {
- // private selectedItem: any;
+ private selectedItem: any;
  /* private icons = [
     'flask',
     'wifi',
@@ -64,29 +65,20 @@ export class HomePage  {
       });
     }
   }*/
-
-  /*mostrarHome=false;
+constructor(public navCtrl: NavController){
+  
+}
+  mostrarHome=false;
   ngOnInit() { 
      timer(6100).subscribe(() => this.mostrarHome = true  )
-     
-    
+  }
+  fotoOK() {    
+    this.navCtrl.navigateForward("/primera");
+  }
+  fotoNOK() {    
+    this.navCtrl.navigateForward("/segunda");
   }
 
  
 }
-*/
-
-
-import { Component, OnInit } from '@angular/core';
-import { timer} from 'rxjs/observable/timer';
-
-@Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-})
-export class HomePage {
- 
-}
-
 

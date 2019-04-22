@@ -25,7 +25,7 @@ export class AppComponent {
       this.splashScreen.hide();
       this. reproducirSonido();
       this.playSound=false;
-      timer(6200).subscribe(() => this.showSplash = false); // <-- sami
+      timer(3000).subscribe(() => this.showSplash = false); // <-- sami
     });
   }
 
@@ -35,7 +35,7 @@ export class AppComponent {
     sonido.load();
     const playPromise = sonido.play();
     if (playPromise !== null){ playPromise.catch(() => { sonido.play(); }) }
-    timer(6200).subscribe(() =>  sonido.muted=true )
+    timer(3000).subscribe(() =>  sonido.muted=true )
     
 
   }

@@ -1,54 +1,22 @@
-<!--<ion-header *ngIf="mostrarHome">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Fotos
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content *ngIf="mostrarHome">
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
+<div *ngIf="mostrarHome" id="card__home" class="card">
+  <div id="card-content">
+    <div id="card-title">      
+      <div class="underline-title underline-home"></div>
     </div>
-  -->
-  <!--</ion-content>  -->
-  <!--<div id="card__home" class="card">
-    <div id="card-content">
-      <div id="card-title">
-        <h2>BIENVENIDO</h2>
-        <div class="underline-title underline-home"></div>
-      </div>
-    </div>
-</div>-->
-<div  class="grid-container-home">
+  </div>
+</div>
+<div  class="grid-container-home" class="body">
     
     <button id="cosas_lindas" class="btn-home">
       <span class="icon">
-        <img class="img-lindo" src="./assets/images/ok.png" alt="">  
+        <img class="img-lindo" src="./assets/images/ok.png" (click)="fotoOK()">  
       </span>     
     </button>
     
     <button id="cosas_feas" class="btn-home">
       <span class="icon">
-        <img class="img-lindo" src="./assets/images/no.png" alt="">  
+        <img class="img-lindo" src="./assets/images/no.png" (click)="fotoNOK()">   
       </span>
-     </button>
-  
-    <!--input id="cosas_lindas" type="button" value="COSAS LINDAS">
-    <input id="cosas_feas" type="button" value="COSAS FEAS"-->
- <!-- angry/happy(grin, laugh) -->
-
+     </button> 
 </div>
