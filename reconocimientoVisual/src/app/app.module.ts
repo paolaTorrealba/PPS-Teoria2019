@@ -17,7 +17,7 @@ import { RouterModule} from '@angular/router';
 import { SplashComponent } from './componentes/splash/splash.component';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
-
+ import {AngularFirestoreModule} from '@angular/fire/firestore';
 //agrego esto por el video
 
 
@@ -27,7 +27,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
   entryComponents: [],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,RouterModule.forRoot([]),
+    AngularFireAuthModule, AngularFirestoreModule, RouterModule.forRoot([]),
     BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     Camera, 
