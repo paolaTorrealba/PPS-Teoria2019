@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
-import {ListaImagenesService} from '../../servicios/lista-imagenes.service';
+import {ListaImagenesService, lista} from '../../servicios/lista-imagenes.service';
 import { AuthService} from '../../servicios/auth.service';
 import { Timestamp } from 'rxjs';
+import {ModalController} from '@ionic/angular';
+import {FotoComponent} from '../../componentes/foto/foto.component';
 
-interface lista {
-  img: string
-  nombreUsuario: string
-  id: string
-}
+
 
 @Component({
   selector: 'app-primera',
@@ -24,7 +22,7 @@ export class PrimeraPage implements OnInit {
   options: any;
 
   public listaImagenes: any =  [];
-  constructor(private authService:AuthService, private camera: Camera, public listaImagenesService: ListaImagenesService, private imagePicker: ImagePicker) {}
+  constructor(public modal: ModalController, private authService:AuthService, private camera: Camera, public listaImagenesService: ListaImagenesService, private imagePicker: ImagePicker) {}
    
   OnLogout(){
     this.authService.logout();
@@ -32,14 +30,14 @@ export class PrimeraPage implements OnInit {
 
   ngOnInit(){
     this.listaImagenesService.getListaImagenes().subscribe(listaImagenes => {
-     listaImagenes.map( lista =>{
+    /* listaImagenes.map( lista =>{
        const data : lista= lista.payload.doc.data() as lista;
        data.id = lista.payload.doc.id;
 
      //  console.log(data)
       this.listaImagenes.push(data);
-     }) 
- 
+     }) */
+ this.listaImagenes=listaImagenes;
     })
   }
 
@@ -99,4 +97,14 @@ getImages() {
       });
    }
 
+
+
+   abrirFoto(lista){
+     this.modal.create({
+       component: FotoComponent,
+       componentProps : {
+           name : lista.name
+       }
+     }).then((modal)=>modal.present())
+   }
 }

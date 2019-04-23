@@ -18,13 +18,14 @@ import { SplashComponent } from './componentes/splash/splash.component';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
  import {AngularFirestoreModule,FirestoreSettingsToken } from '@angular/fire/firestore';
+ import {FotoComponent} from './componentes/foto/foto.component';
 //agrego esto por el video
 
 
 
 @NgModule({
-  declarations: [AppComponent,SplashComponent], 
-  entryComponents: [],
+  declarations: [AppComponent,SplashComponent,FotoComponent], 
+  entryComponents: [FotoComponent],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule, AngularFirestoreModule, RouterModule.forRoot([]),
