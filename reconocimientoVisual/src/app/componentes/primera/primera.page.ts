@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import {ListaImagenesService} from '../../servicios/lista-imagenes.service';
+import { AuthService} from '../../servicios/auth.service';
+import { Timestamp } from 'rxjs';
+
+interface lista {
+  img: string
+  nombreUsuario: string
+  id: string
+}
 
 @Component({
   selector: 'app-primera',
@@ -14,7 +22,26 @@ export class PrimeraPage implements OnInit {
 
   imageResponse: any;
   options: any;
-  constructor(private camera: Camera, public listaImagenesService: ListaImagenesService, private imagePicker: ImagePicker) {}
+
+  public listaImagenes: any =  [];
+  constructor(private authService:AuthService, private camera: Camera, public listaImagenesService: ListaImagenesService, private imagePicker: ImagePicker) {}
+   
+  OnLogout(){
+    this.authService.logout();
+  }
+
+  ngOnInit(){
+    this.listaImagenesService.getListaImagenes().subscribe(listaImagenes => {
+     listaImagenes.map( lista =>{
+       const data : lista= lista.payload.doc.data() as lista;
+       data.id = lista.payload.doc.id;
+
+     //  console.log(data)
+      this.listaImagenes.push(data);
+     }) 
+ 
+    })
+  }
 
   fotoOK(){
     const options: CameraOptions = {    
@@ -72,13 +99,4 @@ getImages() {
       });
    }
 
- ngOnInit(){
-   this.listaImagenesService.getListaImagenes().subscribe(listaImagenes => {
-    listaImagenes.map( lista =>{
-      console.log(lista.payload.doc.data())
-    }) 
- 
-
-   })
- }
 }
