@@ -17,7 +17,7 @@ import { RouterModule} from '@angular/router';
 import { SplashComponent } from './componentes/splash/splash.component';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
- import {AngularFirestoreModule} from '@angular/fire/firestore';
+ import {AngularFirestoreModule,FirestoreSettingsToken } from '@angular/fire/firestore';
 //agrego esto por el video
 
 
@@ -35,6 +35,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
     SplashScreen,
     ImagePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: FirestoreSettingsToken, useValue: {} }
     
   ],
   bootstrap: [AppComponent]

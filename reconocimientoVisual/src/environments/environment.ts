@@ -8,9 +8,9 @@ export const environment = {
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCvp1rhit4hwIXVDZiYeRwq4cD_sG1RzL4",
-  authDomain: "reconocimientoVisual.firebaseapp.com",
+  authDomain: "reconocimientovisual-93589.firebaseapp.com",
   databaseURL: "https://reconocimientovisual-93589.firebaseio.com",
-  projectId: "reconocimientoVisual",
+  projectId: "reconocimientovisual-93589",
   storageBucket: "reconocimientovisual-93589.appspot.com",
   messagingSenderId: "764627965751"
 };
