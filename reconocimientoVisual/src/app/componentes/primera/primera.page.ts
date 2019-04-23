@@ -103,7 +103,7 @@ getImages() {
      this.modal.create({
        component: FotoComponent,
        componentProps : {
-           name : lista.name
+        nombreUsuario : lista.nombreUsuario
        }
      }).then((modal)=>modal.present())
    }

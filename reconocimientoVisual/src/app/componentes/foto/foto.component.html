@@ -1,3 +1,11 @@
-<p>
-nuestro modal funciona
-</p>
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-button slot="start" fill="clear" (click)="closeFoto()">
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+    <ion-title>{{nombreUsuario}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-img>{{img}}</ion-img>
+</ion-content>
