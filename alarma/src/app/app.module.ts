@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -18,6 +19,7 @@ import { RouterModule} from '@angular/router';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    NgbModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,RouterModule.forRoot([]),
     BrowserModule, 
