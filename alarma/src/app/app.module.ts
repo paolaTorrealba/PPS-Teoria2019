@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -14,20 +14,22 @@ import { firebaseConfig} from "../environments/environment";
 import { AngularFireModule} from "@angular/fire";
 import { AngularFireAuthModule} from "@angular/fire/auth";
 import { RouterModule} from '@angular/router';
+import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [
-    NgbModule,
+  imports: [  
+    NgbModule, 
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,RouterModule.forRoot([]),
     BrowserModule, 
     IonicModule.forRoot(),     
     AppRoutingModule],
-  providers: [
+  providers: [  
     StatusBar,
-    SplashScreen,
+    SplashScreen,  DeviceMotion,  
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

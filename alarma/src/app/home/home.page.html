@@ -5,11 +5,19 @@
 <!--</div>-->
 
 
-<div class="button-container">
+<!--<div class="button-container">
   <div class="button">
     <div (click)="onSubmitApagar()" class="button-text">
       OK
     </div>
   </div>
   <div class="button-outline"></div>
-</div>
+</div>-->
+<ion-content padding>
+  <div full> <h1> x: {{x}}</h1></div>
+  <div full> <h1> y: {{y}}</h1></div>
+  <div full> <h1> z: {{z}}</h1></div>
+  <div full> <h1> TimeStamp : {{timeStamp}}</h1></div>
+  <button ion-button full (click)="start()"> Start Listaning </button>
+  <button ion-button full (click)="stop()"> Stop Listaning </button>
+</ion-content>
