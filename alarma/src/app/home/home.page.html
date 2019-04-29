@@ -3,23 +3,45 @@
   <!--<td><a href="something" class="button4" style="background-color:#66F216" btn-block>encendida</a></td>  -->
   
 <!--</div>-->
-<!--
-<ion-content padding>
+
+<!--<ion-content padding>
 <div class="button-container">
-  <div class="button">
-    <div (click)="start()" class="button-text">
+  <div id="globalButton" class="buttonOn">
+    <div id="centerButton" (click)="start()" class="buttonOn-text">
       OK
     </div>
   </div>
-  <div class="button-outline"></div>
+  <div  class="buttonOn-outline"></div>
 </div>
-</ion-content>-->
+</ion-content> -->
 
+
+
+<div class="container">
+
+  <div class="switch white">
+
+    <input type="radio" name="switch" id="switch-off" (click)="stop()" checked>
+    <input type="radio" name="switch" id="switch-on"  (click)="start()" >
+
+    <label for="switch-off">Off</label>
+    <label for="switch-on">On</label>
+
+    <span class="toggle"></span>
+
+  </div> <!-- end switch -->
+
+</div> <!-- end container -->
+
+
+<!--
 <ion-content padding>
   <div full> <h1> x: {{x}}</h1></div>
   <div full> <h1> y: {{y}}</h1></div>
   <div full> <h1> z: {{z}}</h1></div>
   <div full> <h1> TimeStamp : {{timeStamp}}</h1></div>
+  
   <button ion-button full (click)="start()"> Start Listaning </button>
   <button ion-button full (click)="stop()"> Stop Listaning </button>
-</ion-content>
+</ion-content>-->
+

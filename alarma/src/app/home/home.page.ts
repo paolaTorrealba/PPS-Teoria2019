@@ -37,7 +37,7 @@ export class HomePage {
 
 
 start(){
-
+      // document.getElementById('globalButton').style.background="#E14217";
 
       this.seMovio=false;
       var option: DeviceMotionAccelerometerOptions = {frequency: 2000 };
@@ -106,7 +106,7 @@ start(){
 
 stop(){
   this.id.unsubscribe();
-
+ // document.getElementById('globalButton').style.background="#4ec04e;";
 }
 /*
 reproducirSonidoVertical(){
