@@ -17,7 +17,8 @@ import { RouterModule} from '@angular/router';
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Flashlight } from '@ionic-native/flashlight/ngx';
-import { Shake } from '@ionic-native/shake/ngx';
+//import { Shake } from '@ionic-native/shake/ngx';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +32,7 @@ import { Shake } from '@ionic-native/shake/ngx';
     AppRoutingModule],
   providers: [  
     Flashlight,
-    Shake,
+    Vibration,
     StatusBar,
     SplashScreen,  DeviceMotion,  
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
