@@ -16,6 +16,8 @@ import { AngularFireAuthModule} from "@angular/fire/auth";
 import { RouterModule} from '@angular/router';
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { Flashlight } from '@ionic-native/flashlight/ngx';
+import { Shake } from '@ionic-native/shake/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +30,8 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
     IonicModule.forRoot(),     
     AppRoutingModule],
   providers: [  
+    Flashlight,
+    Shake,
     StatusBar,
     SplashScreen,  DeviceMotion,  
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeviceMotion, DeviceMotionAccelerationData, DeviceMotionAccelerometerOptions } from '@ionic-native/device-motion/ngx';
+import { Flashlight } from '@ionic-native/flashlight/ngx';
+import { Shake } from '@ionic-native/shake/ngx';
+import { timer} from 'rxjs/observable/timer';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +23,7 @@ export class HomePage {
   sonidoVertical = new Audio();
   sonidoLateralIzquierdo = new Audio();
   sonidoLateralDerecho = new Audio();
-  constructor(  public router: Router, public deviceMotion: DeviceMotion) {
+  constructor(private shake: Shake, private flashlight: Flashlight, public router: Router, public deviceMotion: DeviceMotion) {
     this.x= "-";
     this.y= "-";
     this.z= "-";
@@ -29,6 +32,7 @@ export class HomePage {
 
 
 start(){
+  
   try{
       var option: DeviceMotionAccelerometerOptions = 
       {
@@ -59,34 +63,39 @@ start(){
             const playPromise =  this.sonidoLateralDerecho.play();
             if (playPromise !== null){ playPromise.catch(() => {  this.sonidoLateralDerecho.play(); }) }
            
-          }else{
-         //  this.sonidoLateralDerecho.muted=true;
-          }       
+          }
+           
           
 
             //vertical
           if (result.y<9.5 && result.y>8.5){
+            this.flashlight.switchOn();
             this.sonidoVertical.src="assets/sonido/alarma3.mp3";
             this.sonidoVertical.load();
             const playPromise =  this.sonidoVertical.play();
             if (playPromise !== null){ playPromise.catch(() => {  this.sonidoVertical.play(); }) }
            
+           
           }else{
-          // this.sonidoVertical.muted=true;
+            this.flashlight.switchOff();        // this.sonidoVertical.muted=true;
           }
 
             //horizontal
           if (result.z<9.5 && result.z>8.5){         
-            this.sonidoHorizontal.src="assets/sonido/alarma4.mp3";
+           /* this.sonidoHorizontal.src="assets/sonido/alarma4.mp3";
             this.sonidoHorizontal.load();
             const playPromise =  this.sonidoHorizontal.play();
             if (playPromise !== null){ playPromise.catch(() => {  this.sonidoHorizontal.play(); }) }
-           
-          }else{
-         // this.sonidoHorizontal.muted=true;
+           */ const watch = this.shake.startWatch(100).subscribe(() => {
+              alert ('muevete');
+              });
+            watch.unsubscribe();
           }
          
       });
+
+      this.router.navigate(['/apagar']);
+
       }catch(error){
           alert("error" + error);
       }
