@@ -1,32 +1,29 @@
 import { Injectable } from '@angular/core';
-import {AngularFireAuth} from "@angular/fire/auth";
-
-
+import { Router } from  "@angular/router";
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
- 
 
-  constructor(private AFauth : AngularFireAuth) { }
-   //el usuario accede con su email y password
-   //esto se ejecuta y nos devuelve un rechazo o una confirmacion
-   //then: confirmacion
-   //catch: error
-   login(email:string, password:string){
-    // this.AFauth.auth.signInWithEmailAndPassword(email,password).then(res=>{
-        //console.log('Estas Logueado : ' + res) --> muestro un mensaje
-       // console.log(res) --> muestro el objeto
-       //muestro una promesa para trabajarela en mi Login
-       //son el resultado de algun evento, un rechasado o un resuelto, es como un callback
+  constructor(private AFauth: AngularFireAuth, private router: Router) { }
 
-       return new Promise((resolve, rejected)=> {
-         this.AFauth.auth.signInWithEmailAndPassword(email, password).then(user => {
-           resolve(user);
-                  
-         }).catch(err => rejected(err)) ;
-        });    
-     
-   }
+  login(email: string, password: string){
+    if(email == '' || password == '')
+    {
+      alert("Datos necesarios");
+    }
+    else{
+
+     this.AFauth.auth.signInWithEmailAndPassword(email, password).then(res =>{
+       console.log(res);
+       this.router.navigate(['home']);
+     }).catch(function(error){
+       console.log("Error logeando: " + error);
+       alert("Usuario o contraseña incorrectos");
+     })
+    }
+  }
 }
