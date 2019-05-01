@@ -1,0 +1,95 @@
+<!--div class="grid-container">
+	
+	<section class="login__section">
+	  
+	  <div class="login__card">
+	    	<button>Idioma logito de bandera</button>
+	    	<button>Tema logito de colores</button>
+	  </div>
+	  
+	</section>
+	<section class="login__section">
+	  
+	  <div class="login__card">
+	  </div>
+	  
+	</section>
+</div-->
+
+<!--
+<div class="container">      
+    <div class="row">
+			<div class="col-sm-2 col-md-2">
+				<button *ngIf="bandera" id="idioma-esp" (mousedown)="cambiarIdioma(bandera)">
+					<img class="img-btn" src="./assets/images/argentina.svg" alt="">
+				</button>
+			</div>
+			<div class="col-sm-2 col-md-2">
+				<button *ngIf="!bandera" id="idioma-ing" (mousedown)="cambiarIdioma(bandera)">
+					<img class="img-btn" src="./assets/images/inglaterra.svg" alt="">
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 col-md-2">
+					<button id="colores" (click)="reproducirAudio('colores')" routerLink="juego">
+						<img class="img-btn" src="./assets/images/colores.svg" alt="">
+					</button>
+			</div>
+			<div class="col-sm-4 col-md-2">	
+					<button id="numeros" (click)="reproducirAudio('numeros')" routerLink="numero">
+					  <img class="img-btn" src="./assets/images/numero.svg" alt="">
+					</button>
+			</div>
+      <div class="col-sm-4 col-md-2">
+					<button id="animales" (click)="reproducirAudio('animales')" routerLink="animal">
+						<img class="img-btn" src="./assets/images/animal.svg" alt="">
+					</button>
+	  	</div>
+    </div>
+</div> -->
+
+
+
+<ion-content class="card-background-page" padding>
+	
+			<div class="col-sm-2 col-md-12">
+				<button  *ngIf="bandera" id="idioma-esp" (mousedown)="cambiarIdioma(bandera)" >
+					<div class="sombreado"></div>
+					<img  src="./assets/images/español.png" alt="" />      
+				</button>
+			</div>
+
+	  	<div class="col-sm-2 col-md-12">
+			 <button  *ngIf="!bandera" id="idioma-esp" (mousedown)="cambiarIdioma(bandera)" >
+				  <div class="sombreado"></div>
+			  	<img  src="./assets/images/ingles.png" alt="" />      
+		 	 </button>
+	  	</div>
+		<br>
+
+			<div class="col-sm-2 col-md-12">
+					<button   id="colores" (click)="reproducirAudio('colores')" routerLink="juego" >
+					<div class="sombreado"></div>
+					<img  src="./assets/images/colores.png" alt="" />      
+				</button>
+			</div>
+
+			<div class="col-sm-2 col-md-12">
+					<button  id="numeros" (click)="reproducirAudio('numeros')" routerLink="numero">
+					<div class="sombreado"></div>
+					<img  src="./assets/images/numeros.png" alt="" />      
+				</button>
+			</div>
+
+			<div class="col-sm-2 col-md-12">
+					<button id="animales" (click)="reproducirAudio('animales')" routerLink="animal" >
+					<div class="sombreado"></div>
+					<img  src="./assets/images/animales.png" alt=""/>      
+				</button>
+			</div>
+ 
+
+  </ion-content>
+
+<router-outlet></router-outlet>
