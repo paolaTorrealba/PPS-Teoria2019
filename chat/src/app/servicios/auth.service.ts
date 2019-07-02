@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
 import { promise } from 'protractor';
 
+import {Router} from "@angular/router";
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { promise } from 'protractor';
 })
 export class AuthService {
 
-  constructor(private AFAuth: AngularFireAuth) { }
+  constructor(private AFAuth: AngularFireAuth, private router: Router) { }
 
   login (email: string, password:string){
 
@@ -20,5 +21,12 @@ export class AuthService {
     });
   }
    
-  
+  loguot(){
+    console.log("estoy en loguot");
+    this.AFAuth.auth.signOut().then(() => {
+this.router.navigate(['/login']);
+    })
+  }
+
+
 }
