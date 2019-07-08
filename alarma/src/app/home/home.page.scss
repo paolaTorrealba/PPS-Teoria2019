@@ -87,8 +87,7 @@ display: block;
 padding-bottom: 100%;
 }
 
-//boton off
-@charset "utf-8";
+//boton of
 /* CSS Document */
 
 /* ---------- GENERAL ---------- */
@@ -200,4 +199,26 @@ input[type="radio"] {
 	transition: left .2s ease;
 	width: 56px;
 	z-index: 1;
+}
+
+.on{
+	color: #15fc47 !important;
+	font-size: 80px;
+	font-family: monospace;
+}
+.off{
+	color: #ffa26d !important;
+	font-size: 80px;
+	font-family: monospace;
+}
+
+.onSuave{
+	color:grey !important;
+	font-family: inherit;
+	font-size: xx-large;
+}
+.offSuave{
+	color:grey !important;
+	font-family: inherit;
+	font-size: xx-large;
 }

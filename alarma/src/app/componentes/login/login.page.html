@@ -2,7 +2,7 @@
    <div class="spinner"></div>
 </div>-->
 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<!--<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
 <div class="login-page">
     <div class="form">
       <form class="register-form">
@@ -19,4 +19,32 @@
         <p class="message">No registrado? <a href="#">Crear una cuenta</a></p>
       </form>
     </div>
-  </div>
+  </div> -->
+
+
+  
+  
+   <ion-content padding>
+      <br><br><br>
+      <div class=".col-sm-2 .col-md-12">
+        <img class="icon" src="/assets/icon/alarma_icon.png" alt="">
+      </div><br><br><br>
+      <ion-item>
+        <ion-label position="floating" > Correo electrónico</ion-label>
+        <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" > Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" type="password" name="password"></ion-input>
+      </ion-item>
+
+      <br>
+      <div class="login">
+          <button class="login, a" (click)="onSubmitLogin()">Entrar</button>	
+      </div>
+      <!--<ion-button class="login" (click)="onSubmitLogin()" expand="block">Entrar</ion-button>-->
+      <br>
+      
+      <p text-center routerLink="/registro">Crear cuenta</p>
+  
+  </ion-content>

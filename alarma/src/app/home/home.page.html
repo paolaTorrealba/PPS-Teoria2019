@@ -24,8 +24,10 @@
     <input type="radio" name="switch" id="switch-off" (click)="stop()" checked>
     <input type="radio" name="switch" id="switch-on"  (click)="start()" >
 
-    <label for="switch-off">Off</label>
-    <label for="switch-on">On</label>
+    <label *ngIf="off"  for="switch-off" class="off">NO</label>
+    <label *ngIf="!off"  for="switch-off" class="offSuave">NO</label>
+    <label *ngIf="on" for="switch-on" class="on">SI</label>
+    <label *ngIf="!on" for="switch-on" class="onSuave">SI</label>
 
     <span class="toggle"></span>
 

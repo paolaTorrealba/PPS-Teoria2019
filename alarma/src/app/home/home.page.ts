@@ -27,6 +27,9 @@ export class HomePage {
   sonidoLateralDerecho = new Audio();
   id: Subscription;
 
+
+  off=true;
+  on=false;
   constructor(public vibration: Vibration, public flashlight: Flashlight, public router: Router, public deviceMotion: DeviceMotion) {
     this.x= "-";
     this.y= "-";
@@ -37,6 +40,8 @@ export class HomePage {
 
 
 start(){
+  this.off=false;
+  this.on=true;
       // document.getElementById('globalButton').style.background="#E14217";
 
       this.seMovio=false;
@@ -106,6 +111,8 @@ start(){
 
 stop(){
   this.id.unsubscribe();
+  this.off=true;
+  this.on=false;
  // document.getElementById('globalButton').style.background="#4ec04e;";
 }
 /*
