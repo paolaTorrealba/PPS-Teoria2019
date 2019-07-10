@@ -21,39 +21,22 @@ export class HomePage implements OnInit {
   tipo_cosas: boolean;
 
   constructor(public router: Router, private  authService:  AuthService, public navCtrl: NavController) { }
-
-
  
-  ngOnInit() { 
-      this.verTodos(this.guardarDatosUser);
+  ngOnInit() {      
      timer(6100).subscribe(() => this.mostrarHome = true )
   }
 
 
-
   mujerMaravilla(){
-  	this.mostrar = true;
-  	this.tipo_cosas = true;
-  	this.SeleccionDeTipoDeFoto.emit(true);
-
     localStorage.setItem('juego', JSON.stringify('mujerMaravilla'));
-    console.log("es mujer maravilla");
     this.navCtrl.navigateForward("/mujerMaravilla");
   }
 
   thor(){
-  	this.mostrar = true;
-  	this.tipo_cosas = false;
-  	this.SeleccionDeTipoDeFoto.emit(false);
-  
     localStorage.setItem('juego', JSON.stringify('thor'));
     this.navCtrl.navigateForward("/thor");
   }
 
-  verTodos(callback){
-    let usuarios: any;
-  
-  }
 
   async guardarDatosUser(todos){    
     console.log(todos);

@@ -16,6 +16,7 @@ import { AngularFireAuthModule} from "@angular/fire/auth";
 import { RouterModule} from '@angular/router';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule, FirestoreSettingsToken } from "@angular/fire/firestore";
+import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
 //import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
 //import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -35,7 +36,8 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from "@angular/fire/fi
     AppRoutingModule],
   providers: [  
      StatusBar,
-    SplashScreen,    
+    SplashScreen,  
+    DeviceMotion,    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: FirestoreSettingsToken, useValue: {}}
   ],

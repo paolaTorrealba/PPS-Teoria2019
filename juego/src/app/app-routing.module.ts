@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'mujerMaravilla', loadChildren: './componentes/mujerMaravilla/mujerMaravilla.module#MujerMaravillaPageModule'},
-  { path: 'thor', loadChildren: './componentes/thor/thor.module#ThorPageModule'}
+  { path: 'thor', loadChildren: './componentes/thor/thor.module#ThorPageModule'},
+  { path: 'resultado', loadChildren: './componentes/resultado/resultado.module#ResultadoPageModule' },
  // { path: 'error', loadChildren: './componentes/error/error.module#ErrorPageModule' },
   //{ path: 'usuario', loadChildren: './componentes/usuario/usuario.module#UsuarioPageModule' },
   //{ path: 'apagar', loadChildren: './componentes/apagar/apagar.module#ApagarPageModule' },

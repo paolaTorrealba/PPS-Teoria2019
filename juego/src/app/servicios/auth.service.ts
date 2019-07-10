@@ -11,6 +11,7 @@ export interface usuario {
   apellido:string,
   id: string,
   password: string,
+  resultado: string
 }
 
 @Injectable({
