@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import {AngularFirestore} from "@angular/fire/firestore";
 import { map } from "rxjs/operators";
 
+
 export interface usuario {
   email:string,  
   nombre:string,
@@ -24,9 +25,16 @@ export class ResultadoPage implements OnInit {
   valueToPush = { };
   menor: string = "00:60:00";
   contador = 0;
+  juego;
+  isThor: boolean= false;
   constructor( public deviceMotion: DeviceMotion,
               public navCtrl: NavController, 
               public fs: AngularFirestore) {
+      this.juego = JSON.parse(localStorage.getItem('juego'));
+      if (this.juego=="thor"){
+        this.isThor=true;
+      }    
+
       this.usuarios=new Array();
      
       this.getListaUsuarios("usuarios").subscribe(lista => {
@@ -54,5 +62,10 @@ export class ResultadoPage implements OnInit {
       })
     }));
   }
+
+  volverAHome() {
+    this.navCtrl.navigateForward("/home");
+  }
+
 
 }

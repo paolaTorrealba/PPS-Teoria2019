@@ -9,10 +9,20 @@
   <div style="background-color: #cecece;">
     <ion-card *ngFor="let item of mejoresPuntajes">  
       <ion-label  style="font-size: x-large; font-family: sans-serif;" >{{item.nombre}} = {{item.resultado}} </ion-label>  
-   
     </ion-card>
   </div> 
-       
+  <div *ngIf="!isThor">    
+        <img src="./assets/icon/mujerMaravilla.png" alt="">    
+  </div>
+  <div *ngIf="isThor">
+         <img  src="./assets/icon/thor.png" alt="">    
+  </div>
+  <div class="btnVolver">
+    <h1>Fin del Juego</h1>
+  </div><br><br>
+  <div class="btnVolver">
+    <button class="btnVolver, a" (click)="volverAHome()">Volver</button>	
+  </div>
 </ion-content>
   
 
