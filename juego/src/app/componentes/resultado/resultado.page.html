@@ -1,13 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-item >Resultado</ion-item>
+  <ion-toolbar> 
+    <ion-item  style="color: rgb(15, 141, 206);
+    font-family: cursive;font-size: xx-large;margin-left: 60px;">RESULTADOS</ion-item>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding >
-  <ion-item style="font-family: inherit; font-size: xx-large; margin-left: 30%;">{{tiempo}}</ion-item>
-    
-  </ion-content>
+<ion-content padding  style="background-color: #cecece;" >
+  <div style="background-color: #cecece;">
+    <ion-card *ngFor="let item of mejoresPuntajes">  
+      <ion-label  style="font-size: x-large; font-family: sans-serif;" >{{item.nombre}} = {{item.resultado}} </ion-label>  
+   
+    </ion-card>
+  </div> 
+       
+</ion-content>
   
 
 

@@ -39,9 +39,12 @@ export class ThorPage implements OnInit {
   public perdio: boolean = false;
 
 
-  constructor( public deviceMotion: DeviceMotion, public navCtrl: NavController,public fs: AngularFirestore, ) {
+  constructor( public deviceMotion: DeviceMotion, 
+    public navCtrl: NavController, public fs: AngularFirestore ) {
+    this.pauseTimer()
     this.x= "-";
     this.y= "-"; 
+    this.hora ="00:00:00";
     
   }
 
@@ -63,7 +66,12 @@ export class ThorPage implements OnInit {
             if (this.segundo==60){
               this.segundo=0;
               this.minuto++
-              this.hora="00:"+ "0"+this.minuto.toString()+":0"+this.segundo.toString();        
+              if (this.minuto<=9){
+                this.hora="00:"+ "0"+this.minuto.toString()+":0"+this.segundo.toString();  
+              }
+              else {
+                this.hora="00:"+ this.minuto.toString()+":0"+this.segundo.toString();  
+              }                    
             }
           },1000)
         }
@@ -71,18 +79,18 @@ export class ThorPage implements OnInit {
   
   // en el inicio configuro las posiciones 
   ngOnInit(){
-   // this.startTimer(); 
-    //this.startMove();  
-    this.hora ="00:10:00";
+    this.startTimer(); 
+    this.startMove();  
+   /* this.hora ="00:10:00";
     localStorage.setItem('tiempo', JSON.stringify(this.hora));
     this.perdio=true;      
     this.guardarUsuarioYPuntaje();
     console.log("ya guarde");
-    this.navCtrl.navigateForward("/resultado");
+    this.navCtrl.navigateForward("/resultado");*/
   }
 
   startMove(){
-    var option: DeviceMotionAccelerometerOptions = {frequency: 200 };
+    var option: DeviceMotionAccelerometerOptions = {frequency: 300 };
     this.id= this.deviceMotion.watchAcceleration(option).subscribe((result: DeviceMotionAccelerationData) =>
     {
         this.x= "" + result.x;
@@ -91,13 +99,21 @@ export class ThorPage implements OnInit {
         this.select=document.getElementById("divHola");
         this.rect = this.select.getBoundingClientRect();      
        
-       if (result.x > 6 || result.x < -5,7 || result.y > 6.5  || result.y < -5.7){
+     /*  if (result.x > 6 || result.x < -5,7 || result.y > 6.5  || result.y < -5.7){
          
-            localStorage.setItem('tiempo', JSON.stringify(this.hora));
+           localStorage.setItem('tiempo', JSON.stringify(this.hora));
             this.perdio=true;      
             this.guardarUsuarioYPuntaje();
             this.navCtrl.navigateForward("/resultado");
          
+        }*/
+      if (result.x > 4.5 || result.x < -5.5 || result.y > 6.7  || result.y < -5.7){     
+       
+          localStorage.setItem('tiempo', JSON.stringify(this.hora));
+          this.perdio=true;      
+          this.guardarUsuarioYPuntaje();
+          this.pauseTimer()
+          this.navCtrl.navigateForward("/resultado");
         }
         else {           
 

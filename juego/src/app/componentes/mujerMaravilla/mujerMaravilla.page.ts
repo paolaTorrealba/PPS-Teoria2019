@@ -1,6 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceMotion, DeviceMotionAccelerationData, DeviceMotionAccelerometerOptions } from '@ionic-native/device-motion/ngx';
 import { NavController } from '@ionic/angular';
+import {AngularFirestore} from "@angular/fire/firestore";
+import { map } from "rxjs/operators";
+
+
+export interface usuario {
+  email:string,  
+  nombre:string,
+  apellido:string,
+  id: string,
+  password: string,
+  resultado: string
+}
 
 @Component({
   selector: 'app-mujerMaravilla',
@@ -22,17 +34,17 @@ export class MujerMaravillaPage implements OnInit {
   tiempo;
 
   rect;
-  id;
-  seMovio;
-  control;
+  id; 
+  usuarios;
   public perdio: boolean = false;
 
   limiteX;
   limiteY;
-  constructor( public deviceMotion: DeviceMotion, public navCtrl: NavController) {
+  constructor( public deviceMotion: DeviceMotion, public fs: AngularFirestore, public navCtrl: NavController) {
+    this. pauseTimer();
     this.x= "-";
     this.y= "-"; 
-    
+    this.hora ="00:00:00";
   }
 
 //controla el temporizador
@@ -58,9 +70,7 @@ export class MujerMaravillaPage implements OnInit {
               }
               else {
                 this.hora="00:"+ this.minuto.toString()+":0"+this.segundo.toString();  
-              }
-
-                    
+              }                    
             }
           },1000)
         }
@@ -79,23 +89,18 @@ export class MujerMaravillaPage implements OnInit {
         this.x= "" + result.x;
         this.y= "" + result.y;        
 
-        this.limiteX= - 50 * result.x + 130;
-        this.limiteY=   50 * result.y + 250;
-
-        //lateral izquierdo x=9            
-         this.control= result.x;
-          console.log(this.seMovio);
+        //this.limiteX= - 50 * result.x + 130;
+        //this.limiteY=   50 * result.y + 250;       
 
           this.select=document.getElementById("divHola");
-          this.rect = this.select.getBoundingClientRect();      
-       
-          // toca lateral izquierdo o lateral derecho
-          if (result.x > 4.5 || result.x < -5.5 || result.y > 6.7  || result.y < -5.7){
-         //  if (this.limiteY<0 || this.limiteX<0 || this.limiteY>600 ||this.limiteX>240){
-            this.tiempo= this.hora;
-            localStorage.setItem('tiempo', JSON.stringify(this.tiempo));
+          this.rect = this.select.getBoundingClientRect();             
+          
+          if (result.x > 4.5 || result.x < -5.5 || result.y > 6.7  || result.y < -5.7){     
+           
+            localStorage.setItem('tiempo', JSON.stringify(this.hora));
             this.perdio=true;      
             this.guardarUsuarioYPuntaje();
+            this. pauseTimer();
             this.navCtrl.navigateForward("/resultado");
           }
           else {
@@ -123,6 +128,35 @@ export class MujerMaravillaPage implements OnInit {
     clearInterval(this.interval);
   }
   guardarUsuarioYPuntaje(){
-    
+    this.usuarios=new Array();
+    this.getListaUsuarios("usuarios").subscribe(lista => {
+      this.usuarios=lista;        
+      console.log(this.usuarios);
+      let email = JSON.parse(localStorage.getItem('email'));
+      for (let i = this.usuarios.length-1; i >= 0; i--){  
+        //es el usuario que esta jugando      
+        if (this.usuarios[i].email==email)            
+          this.usuarios[i].resultado = this.hora;
+          this.updateUsuario( this.usuarios[i]).then(res => {      
+       //   this.error.mostrarMensaje("Pedido pagado. Gracias por comer en nuestro restaurante");
+        //  this.navCtrl.setRoot(PrincipalPage);
+        }); 
+      }
+    });    
+
+
+  }
+  getListaUsuarios(tipo:string) {
+    return this.fs.collection(tipo).snapshotChanges().pipe(map(usuarios => {
+      return usuarios.map(a =>{
+        const data = a.payload.doc.data() as usuario;
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    }));
+  }
+
+  updateUsuario(data) {
+    return this.fs.collection('usuarios').doc(data.id).update(data);
   }
 }
