@@ -1,5 +1,7 @@
 export interface message{
     content : string
     type : string
-    date : Date
+    date : string
+    nombre:string
+    email: string;
 }

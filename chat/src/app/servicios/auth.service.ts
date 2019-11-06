@@ -3,14 +3,23 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { promise } from 'protractor';
 import { Router } from "@angular/router";
 import { AngularFirestore } from "@angular/fire/firestore";
+import { map } from 'rxjs/operators';
 
+export interface usuario{
+  apellido : string
+  email : string
+  id : string
+  nombre:string
+  password:string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private AFauth : AngularFireAuth, private router : Router, private db : AngularFirestore) { }
+  constructor(private AFauth : AngularFireAuth,
+     private router : Router, private db : AngularFirestore) { }
 
   login(email:string, password:string){
 
@@ -46,5 +55,13 @@ export class AuthService {
 
   }
 
-
+  getUsuarios(tipo:string) { 
+    return this.db.collection(tipo).snapshotChanges().pipe(map(rooms => {
+      return rooms.map(a =>{
+        const data = a.payload.doc.data() as usuario;
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    }));
+  }
 }

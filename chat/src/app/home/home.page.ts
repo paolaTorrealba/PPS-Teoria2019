@@ -9,10 +9,12 @@ import { ChatComponent } from "../componentes/chat/chat.component";
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  styleUrls: ['home.page.scss', ],
+ 
 })
 export class HomePage implements OnInit {
   public chatRoom:  any= [];
+  public salaChat:string;
   constructor(public chatService: ChatsService,
      public authService: AuthService,
      public actionSheetController: ActionSheetController,
@@ -30,7 +32,11 @@ export class HomePage implements OnInit {
   }
 
   openChat(chat){
-
+    console.log("sala: ", chat.nombre);
+    localStorage.setItem("salaChat", chat.nombre);
+    this.salaChat = chat.nombre;
+    localStorage.setItem("salaChat", chat.nombre);
+    console.log("salac: ", this.salaChat)
     this.modal.create({
       component: ChatComponent,
       componentProps : {
