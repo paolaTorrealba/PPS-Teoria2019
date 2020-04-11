@@ -1,33 +1,28 @@
-<!--<div *ngIf="showSplash" class="splash">
-   <div class="spinner"></div>
-</div>-->
-
-<!--<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
-<div class="login-page">
-    <div class="form">
-      <form class="register-form">
-        <input position="floating" type="text" placeholder="name"/>
-        <input position="floating" type="password" placeholder="password"/>
-        <input type="text" placeholder="email address"/>
-        <button>create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
-      <form class="login-form">
-        <input  type="text"  [(ngModel)]="email" name="email" placeholder="correo"/>
-        <input  type="password"  [(ngModel)]="password"  name="password" placeholder="contraseña"/>
-        <button (click)="onSubmitLogin()" expand="block">Ingresar</button>
-        <p class="message">No registrado? <a href="#">Crear una cuenta</a></p>
-      </form>
-    </div>
-  </div> -->
-
-
-  
-  
    <ion-content padding>
+      <div class="usuarios">
+
+          <button  (click)="DesplegarUsuarios()">
+            <ion-icon name="person"></ion-icon>
+          </button>
+        
+          <div [class]="agrandar">
+              <ion-buttons end style="margin-right: 10px;">
+                  <button ion-button icon-only (click)="NoDesplegarUsuarios()">
+                    <ion-icon name="close"></ion-icon>
+                  </button>
+                </ion-buttons>
+            <button (click)="SetearUsuario('admin@admin.com', '111111')">admin</button>
+            <button (click)="SetearUsuario('invitado@invitado.com', '222222')">invitado</button>
+            <button (click)="SetearUsuario('usuario@usuario.com', '333333')">usuario</button>
+            <button (click)="SetearUsuario('anonimo@anonimo.com', '444444')">usuario</button>
+            <button (click)="SetearUsuario('tester@tester.com', '555555')">tester</button>
+
+          </div>
+        
+        </div>
       <br><br><br>
       <div class=".col-sm-2 .col-md-12">
-        <img class="icon" src="/assets/icon/alarma_icon.png" alt="">
+        <img class="icon" src="/assets/icon/icon-alarma.png" alt="">
       </div><br><br><br>
       <ion-item>
         <ion-label position="floating" > Correo electrónico</ion-label>
@@ -45,6 +40,6 @@
       <!--<ion-button class="login" (click)="onSubmitLogin()" expand="block">Entrar</ion-button>-->
       <br>
       
-      <p text-center routerLink="/registro">Crear cuenta</p>
+      <!-- <p text-center routerLink="/registro">Crear cuenta</p> -->
   
   </ion-content>

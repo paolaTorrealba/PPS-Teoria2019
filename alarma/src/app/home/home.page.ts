@@ -40,10 +40,10 @@ export class HomePage {
 
 
 start(){
+  document.body.style.background="rgb(107,234,75)";
   this.off=false;
   this.on=true;
-      // document.getElementById('globalButton').style.background="#E14217";
-
+  
       this.seMovio=false;
       var option: DeviceMotionAccelerometerOptions = {frequency: 2000 };
       this.id= this.deviceMotion.watchAcceleration(option).subscribe((result: DeviceMotionAccelerationData) =>
@@ -74,12 +74,14 @@ start(){
                      
 
             //vertical
-          if (result.y<9.5 && result.y>8.5){
+          if (result.y>8.0){
             this.seMovio=true;
             this.sonidoVertical.src="assets/sonido/alarma3.mp3";
             this.sonidoVertical.load();
             const playPromise =  this.sonidoVertical.play();
-            if (playPromise !== null){ playPromise.catch(() => {  this.sonidoVertical.play(); }) }
+            if (playPromise !== null){ playPromise.catch(() => {                
+               timer(3000).subscribe(() => this.sonidoVertical.play())
+               }) }
            
             this.flashlight.switchOn();     
           }else{
@@ -94,7 +96,9 @@ start(){
             this.sonidoHorizontal.src="assets/sonido/alarma4.mp3";
             this.sonidoHorizontal.load();
             const playPromise =  this.sonidoHorizontal.play();
-            if (playPromise !== null){ playPromise.catch(() => {  this.sonidoHorizontal.play(); }) }         
+            if (playPromise !== null){ playPromise.catch(() => { 
+              timer(3000).subscribe(() => this.sonidoHorizontal.play()) ;
+               }) }         
             this.flashlight.switchOff();    
             this.vibration.vibrate(5000);   
           }
@@ -110,6 +114,10 @@ start(){
     } 
 
 stop(){
+  document.body.style.background="rgb(9,9,9)";
+  this.x= "";
+  this.y= "";
+  this.z= "";
   this.id.unsubscribe();
   this.off=true;
   this.on=false;
@@ -149,6 +157,7 @@ reproducirSonidoHorizontal(){
 
   ngOnInit() { }
   onSubmitApagar (){
+    document.body.style.background="rgb(200,200,200)";
      console.log("se apaga la alarma");
      this.router.navigate(['/apagar']);
  

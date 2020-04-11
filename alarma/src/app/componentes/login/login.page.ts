@@ -12,10 +12,17 @@ export class LoginPage implements OnInit {
   
 email: string;
 password: string;
+botonUsuarios="";
+agrandar="";
 
 showSplash = true;
   constructor( private authService:AuthService, public router: Router) {}
 
+  SetearUsuario(email: string, password: string) {
+    this.email = email;
+    this.password = password;
+    this.NoDesplegarUsuarios();
+  }
   ngOnInit() { 
     timer(3000).subscribe(() => this.showSplash = false)
   }
@@ -27,6 +34,20 @@ showSplash = true;
   }).catch(err => alert ('los datos son incorrectos o no existe el usuario'));
 
    
+  }
+
+  DesplegarUsuarios() {
+    this.botonUsuarios = "ocultar";
+    this.agrandar = "agrandar";
+  }
+
+  NoDesplegarUsuarios() {
+
+    setTimeout(() => {
+      this.botonUsuarios = "";
+    }, 500);
+
+    this.agrandar = "";
   }
 
   

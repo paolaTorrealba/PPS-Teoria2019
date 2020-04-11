@@ -1,49 +1,21 @@
-<!--<div class="btn-group">
-  <td><a href="something" class="button4" style="background-color:#1B8AC6" btn-block>Apagada</a></td>-->
-  <!--<td><a href="something" class="button4" style="background-color:#66F216" btn-block>encendida</a></td>  -->
-  
-<!--</div>-->
-
-<!--<ion-content padding>
-<div class="button-container">
-  <div id="globalButton" class="buttonOn">
-    <div id="centerButton" (click)="start()" class="buttonOn-text">
-      OK
-    </div>
-  </div>
-  <div  class="buttonOn-outline"></div>
-</div>
-</ion-content> -->
-
-
-
 <div class="container">
-
+    <label>{{x}}</label>
+    <label>{{y}}</label>
+    <label>{{z}}</label>
   <div class="switch white">
 
     <input type="radio" name="switch" id="switch-off" (click)="stop()" checked>
     <input type="radio" name="switch" id="switch-on"  (click)="start()" >
 
-    <label *ngIf="off"  for="switch-off" class="off">NO</label>
-    <label *ngIf="!off"  for="switch-off" class="offSuave">NO</label>
-    <label *ngIf="on" for="switch-on" class="on">SI</label>
-    <label *ngIf="!on" for="switch-on" class="onSuave">SI</label>
+    <label *ngIf="off"  for="switch-off" class="off"></label>
+    <label *ngIf="!off"  for="switch-off" class="offSuave"></label>
+    <label *ngIf="on" for="switch-on" class="on"></label>
+    <label *ngIf="!on" for="switch-on" class="onSuave"></label>
 
     <span class="toggle"></span>
-
+   
+   
   </div> <!-- end switch -->
 
 </div> <!-- end container -->
-
-
-<!--
-<ion-content padding>
-  <div full> <h1> x: {{x}}</h1></div>
-  <div full> <h1> y: {{y}}</h1></div>
-  <div full> <h1> z: {{z}}</h1></div>
-  <div full> <h1> TimeStamp : {{timeStamp}}</h1></div>
-  
-  <button ion-button full (click)="start()"> Start Listaning </button>
-  <button ion-button full (click)="stop()"> Stop Listaning </button>
-</ion-content>-->
 
