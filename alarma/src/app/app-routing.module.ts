@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'usuario', loadChildren: './componentes/usuario/usuario.module#UsuarioPageModule' },
   { path: 'apagar', loadChildren: './componentes/apagar/apagar.module#ApagarPageModule' },
   { path: 'splash', loadChildren: './componentes/splash/splash.module#SplashPageModule' },
+  { path: 'popover', loadChildren: './pages/popover/popover.module#PopoverPageModule' },
 ];
 
 @NgModule({

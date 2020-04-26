@@ -21,6 +21,7 @@ showSplash = true;
   SetearUsuario(email: string, password: string) {
     this.email = email;
     this.password = password;
+    localStorage.setItem("alarmaPass",this.password);
     this.NoDesplegarUsuarios();
   }
   ngOnInit() { 
