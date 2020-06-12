@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../servicios/auth.service';
 import { Router } from '@angular/router';
+
 import { timer} from 'rxjs/observable/timer';
 
 @Component({
@@ -16,7 +17,8 @@ botonUsuarios="";
 agrandar="";
 
 showSplash = true;
-  constructor( private authService:AuthService, public router: Router) {}
+  constructor( private authService:AuthService,
+     public router: Router) {}
 
   SetearUsuario(email: string, password: string) {
     this.email = email;
@@ -31,6 +33,8 @@ showSplash = true;
   onSubmitLogin(){
     //console.log("estas en la fucion")
     this.authService.login(this.email,this.password).then (res => {
+      
+        localStorage.setItem("alarmaPass",this.password);
         this.router.navigate(['/home']);
   }).catch(err => alert ('los datos son incorrectos o no existe el usuario'));
 

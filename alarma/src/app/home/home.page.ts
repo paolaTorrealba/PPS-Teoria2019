@@ -5,7 +5,7 @@ import { Flashlight } from '@ionic-native/flashlight/ngx';
 import { timer } from 'rxjs/observable/timer';
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { Subscription } from 'rxjs';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, AlertController } from '@ionic/angular';
 
 import { OnInit, Output, EventEmitter } from '@angular/core';
 
@@ -34,7 +34,7 @@ export class HomePage {
   mensaje1="na";
   mensaje2="na";
 
-  @Output() alarmActivatedEvent: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output() activarAlarmaEvent: EventEmitter<Boolean> = new EventEmitter<Boolean>();
   alarmaActivada: Boolean;
   private estaEnPosicionIzquierda: boolean;
   private estaEnPosicionDerecha: boolean;
@@ -44,7 +44,9 @@ export class HomePage {
 
   constructor(private vibration: Vibration, 
     private flashlight: Flashlight,
+    private alertController: AlertController,
     public popoverCtrl: PopoverController) {
+      console.log("constructor", this.off, this.on)
     this.alarmaActivada = false;
     this.estaEnPosicionHorizontal = false;
     this.estaEnPosicionVertical = false;
@@ -57,12 +59,13 @@ export class HomePage {
 
 
   private init(){
+    console.log("init", this.off, this.on)
     this.mensaje0 ="init";
     this.estaEnPosicionHorizontal = true;
     this.estaEnPosicionVertical = false;
     this.estaEnPosicionIzquierda = false;
     this.estaEnPosicionDerecha = false;    
-}
+  }
   private posicionActualDiferenteAVertical() {
     this.estaEnPosicionIzquierda = false;
     this.estaEnPosicionDerecha = false;
@@ -112,7 +115,7 @@ export class HomePage {
     const alpha = event.alpha === null ? 0 : Math.round(event.alpha);
     const beta = event.beta === null ? 0 : Math.round(event.beta);
     const gamma = event.gamma === null ? 0 : Math.round(event.gamma);
-    console.log("active alamra");
+    console.log("active alarma");
     //Si NO estaba en posicion VERTICAL y ahora si 
     if (!this.estaEnPosicionVertical && (beta >= 80 && beta <= 100)) {
         this.mensaje1="entro en if";
@@ -154,12 +157,13 @@ export class HomePage {
   }
 
   start() {
+    console.log("start")
     this.off = false;
     this.on = true;
     this.init();
-    document.body.style.background = "rgb(107,234,75)";
+    document.body.style.background = "rgb(195, 243, 182)"; //verde claro
     this.alarmaActivada = !this.alarmaActivada;
-    this.alarmActivatedEvent.emit(this.alarmaActivada);
+    this.activarAlarmaEvent.emit(this.alarmaActivada);
     const elistener = this.eventListener;
     if (this.alarmaActivada) {      // si esta activada, escucho eventos
       window.addEventListener('deviceorientation', elistener, true);
@@ -197,19 +201,28 @@ export class HomePage {
     this.pedirPass =false;
     this.off = false;
     this.on = true;
-    document.body.style.background = "rgb(107,234,75)";
+    document.body.style.background = "rgb(107,234,75)"; //rojo
     this.start();
   }
-  apagarAlarma (){    
-    this.pedirPass =true; 
-    this.mostrarAlert=false;  
+  apagarAlarma (){  
+    let valido = this.validatePassword();  
+    if (valido){
+      console.log("apago la alarma")
+    }else{
+      console.log("sigue encendida")
+    }
+    // this.pedirPass =true; 
+    // this.mostrarAlert=false;  
   }
   stop() {
+
+    console.log("stop")
+ 
       this.off = true;
       this.on = false;   
-      document.body.style.background = "rgb(9,9,9)";
+      document.body.style.background = "rgb(9c,a1,a5)";
       this.alarmaActivada = !this.alarmaActivada;
-      this.alarmActivatedEvent.emit(this.alarmaActivada);
+      this.activarAlarmaEvent.emit(this.alarmaActivada);
       const elistener = this.eventListener;
       if (this.alarmaActivada) {   
         window.addEventListener('deviceorientation', elistener, true);
@@ -227,5 +240,57 @@ export class HomePage {
 
   ngOnInit() { }  
 
+  private async validatePassword() {
+    let response;
+    let password;
+    console.log("validate")
+    password = localStorage.getItem("alarmaPass");
+    console.log(password)
+    // localStorage.get('alarmaPass').then((val) => {
+    //   password = val
+    // });
+    const alert = await this.alertController.create({
+      cssClass: 'alertDanger',
+      header: 'Ingrese su contraseña',
+      inputs: [
+        {
+          name: 'contraseña',
+          type: 'password',
+          placeholder: 'Contraseña'
+        }
+      ],
+      buttons: [
+        {
+          cssClass:'btnCancelar',
+          text: 'Cancelar',
+          handler: () => {
+            alert.dismiss(false);
+            return false;
+          }
+        }, {
+          cssClass:'btnAceptar',
+          text: 'Aceptar',
+          handler: (input) => {
+            if(input.contraseña == password){
+              alert.dismiss(true);
+              return false;
+            }
+            else{
+              alert.dismiss(false);
+              return false;
+            }
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+    await alert.onDidDismiss().then((data) => {
+      console.log("data",data)
+      response = data
+    })
+    console.log("response", response)
+    return response
+  }
 
 }

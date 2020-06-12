@@ -1,0 +1,16 @@
+
+.alertDanger{
+  background-color: rgb(39, 47, 165) !important;
+  color: red !important;
+  
+}
+.alert-sub-title.sc-ion-alert-md{
+  background-color: white;
+  color: red;
+  
+}
+ .alert-title.sc-ion-alert-md{
+  background-color: white;
+  color: red;
+ 
+ }

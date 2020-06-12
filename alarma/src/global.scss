@@ -9,3 +9,27 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+.alertDanger{
+    background-color: rgba(143, 213, 241, 0.698) !important;
+    color: rgb(56, 0, 78) !important;      
+  }
+  .btnCancelar{
+    background-color: rgba(226, 25, 25, 0.562) !important;
+    color: rgb(0, 0, 0) !important;  
+    margin-left: -7%;
+    text-align: center;
+  }
+
+  .btnAceptar{
+    background-color: rgba(52, 138, 18, 0.623) !important;
+    color: rgb(0, 0, 0) !important;  
+    text-align: center;
+  }
+ 
+
+  .sc-ion-alert-md{
+    color: rgb(0, 0, 0) !important; 
+    margin-left: -7%;
+    text-align: center;
+  }

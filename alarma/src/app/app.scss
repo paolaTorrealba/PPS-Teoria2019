@@ -37,3 +37,18 @@
       -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     }
   }
+  .alertDanger{
+    background-color: rgb(39, 47, 165) !important;
+    color: red !important;
+    
+  }
+  .alert-sub-title.sc-ion-alert-md{
+    background-color: white;
+    color: red;
+    
+  }
+   .alert-title.sc-ion-alert-md{
+    background-color: white;
+    color: red;
+   
+   }

@@ -3,30 +3,31 @@
         <ion-input [(ngModel)]="password" type="password" name="password"></ion-input>
     </ion-item>
     <div *ngIf="pedirPass">
-        <button style="  margin-left: 140px;
-        margin-top: 10px;" type="button" class="btn btn-info" (click)="enviar()">Enviar</button>
+        <button style="  margin-left: 140px;margin-top: 10px;" type="button" class="btn btn-info" (click)="enviar()">Enviar</button>
      
     </div>
     <div  style=" text-align: center; margin-top: 10px;" *ngIf="pedirPass && mostrarAlert" class="alert alert-danger" role="alert">
-           contraseña incorrecta
+        contraseña incorrecta
     </div>
     <label>{{this.mensaje0}}</label>
     <label>{{this.mensaje1}}</label>
-    <label>{{this.mensaje2}}</label>
-<div class="container">
+    <label>{{this.mensaje2}}</label> <br>
+    <button style="margin-left: 17%; margin-top: 30%;" class="metal1 radial1" *ngIf ="this.off" id="alarmOn" (click)="encenderAlarma()"><ion-icon name="notifications-off"></ion-icon></button>
+    <button style="margin-left: 17%; margin-top: 30%;" class="metal radial" *ngIf ="!this.off" id="alarmOff" (click)="apagarAlarma()"><ion-icon name="notifications"></ion-icon></button>
+<!-- <div class="container">
   <div class="switch white">
     <input type="radio" name="switch" id="switch-off" (click)="apagarAlarma()" checked>
     <input type="radio" name="switch" id="switch-on"  (click)="encenderAlarma()" >
-  
+   -->
 
     <!-- <label *ngIf="off"  for="switch-off" class="off"></label>
     <label *ngIf="!off"  for="switch-off" class="offSuave"></label>
     <label *ngIf="on" for="switch-on" class="on"></label>
     <label *ngIf="!on" for="switch-on" class="onSuave"></label> -->
 
-    <span class="toggle"></span>  
+    <!-- <span class="toggle"></span>   -->
     <!-- <button ion-button icon-only (click)="presentPopover($event)">
             <ion-icon name="more"></ion-icon>
      </button> -->
-  </div> 
-</div> 
+  <!-- </div> 
+</div>  -->
