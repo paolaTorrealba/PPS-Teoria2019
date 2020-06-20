@@ -8,14 +8,19 @@ import { timer } from 'rxjs/observable/timer';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-
-
-  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar) {
+  
+  private splash= true;
+  private notificationAudio= new Audio("../assets/sonido/inicio.mp3")
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar
+  ) {
     this.initializeApp();
-      this. reproducirSonido();
   }
 
   initializeApp() {
@@ -23,16 +28,46 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
+      if (this.splash){
+setTimeout(() => {
+  console.log("play")
+  this.notificationAudio.play();
+  setTimeout(()=> {
+    this.pararAlarma();
+    this.splash = false;
+  }, 5650)
+}, 5300)
+      }
     });
   }
 
-   reproducirSonido(){
-    let sonido = new Audio();
-    sonido.src="assets/sonido/sonido.mp3";
-    sonido.load();
-    sonido.play();
-    timer(6000).subscribe(() =>  sonido.muted=true )
-    
-
+  pararAlarma() {
+    this.notificationAudio.pause();
+    this.notificationAudio.currentTime = 0;
   }
 }
+
+
+//   constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar) {
+//     this.initializeApp();
+//       this. reproducirSonido();
+//   }
+
+//   initializeApp() {
+//     this.platform.ready().then(() => {
+//       this.statusBar.styleDefault();
+//       this.splashScreen.hide();
+
+//     });
+//   }
+
+//    reproducirSonido(){
+//     let sonido = new Audio();
+//     sonido.src="assets/sonido/sonido.mp3";
+//     sonido.load();
+//     sonido.play();
+//     timer(6000).subscribe(() =>  sonido.muted=true )
+    
+
+//   }
+// }
