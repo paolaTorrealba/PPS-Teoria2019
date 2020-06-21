@@ -18,7 +18,7 @@ export class HomePage {
   timeStamp: string;
   seMovio: any;
 
-  sonidoHorizontal = new Audio();
+  // sonidoHorizontal = new Audio();
   sonidoVertical = new Audio();
   sonidoLateralIzquierdo = new Audio();
   sonidoLateralDerecho = new Audio();
@@ -45,9 +45,21 @@ export class HomePage {
   constructor(private vibration: Vibration, 
     private flashlight: Flashlight,
     private alertController: AlertController,
-    public popoverCtrl: PopoverController) {
-      console.log("constructor", this.off, this.on)
-    this.alarmaActivada = false;
+    public popoverCtrl: PopoverController) {   
+      console.log("constructor- off- on", this.off, this.on)
+    let estado = localStorage.getItem("estadoAlarma");
+    console.log("estado", estado)
+    if (estado == "alarmaActivada"){
+       this.alarmaActivada = true;
+       this.off = false;
+       this.on = true;
+       document.body.style.background = "rgb(195, 243, 182)"; //verde claro
+    }
+    else{
+       this.alarmaActivada = false;
+       this.off = true;
+       this.on = false;
+    }
     this.estaEnPosicionHorizontal = false;
     this.estaEnPosicionVertical = false;
     this.estaEnPosicionDerecha = false;
@@ -157,9 +169,11 @@ export class HomePage {
   }
 
   start() {
+    
     console.log("start")
     this.off = false;
     this.on = true;
+    localStorage.setItem("estadoAlarma","alarmaActivada");
     this.init();
     document.body.style.background = "rgb(195, 243, 182)"; //verde claro
     this.alarmaActivada = !this.alarmaActivada;
@@ -207,6 +221,7 @@ export class HomePage {
   apagarAlarma (){  
     let valido = this.validatePassword();  
     if (valido){
+      console.log("valido2", this.contraseniaValida)
       console.log("apago la alarma")
     }else{
       console.log("sigue encendida")
@@ -214,13 +229,15 @@ export class HomePage {
     // this.pedirPass =true; 
     // this.mostrarAlert=false;  
   }
+
   stop() {
 
     console.log("stop")
- 
+    localStorage.setItem("estadoAlarma","alarmaNoActivada");
       this.off = true;
       this.on = false;   
-      document.body.style.background = "rgb(9c,a1,a5)";
+      document.body.style.background = "rgb(0, 0, 0)";
+      console.log(document.body.style.background)
       this.alarmaActivada = !this.alarmaActivada;
       this.activarAlarmaEvent.emit(this.alarmaActivada);
       const elistener = this.eventListener;
@@ -243,9 +260,9 @@ export class HomePage {
   private async validatePassword() {
     let response;
     let password;
-    console.log("validate")
+    console.log("validate1")
     password = localStorage.getItem("alarmaPass");
-    console.log(password)
+    console.log("password: ", password)
     // localStorage.get('alarmaPass').then((val) => {
     //   password = val
     // });
@@ -271,12 +288,17 @@ export class HomePage {
           cssClass:'btnAceptar',
           text: 'Aceptar',
           handler: (input) => {
+            console.log("input",input, "password", password)
             if(input.contraseña == password){
+              this.contraseniaValida = true;
+              this.stop();
+              console.log("seteo validez")
               alert.dismiss(true);
-              return false;
+              return true;
             }
             else{
               alert.dismiss(false);
+              this.contraseniaValida = false;
               return false;
             }
           }
