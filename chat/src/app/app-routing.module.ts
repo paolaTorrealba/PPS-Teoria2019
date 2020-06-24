@@ -4,10 +4,11 @@ import {AuthGuard} from "./guards/auth.guard";
 import {NologinGuard} from "./guards/nologin.guard";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate: [AuthGuard]},
-  { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule', canActivate: [NologinGuard]},
-  { path: 'registro', loadChildren: './componentes/registro/registro.module#RegistroPageModule', canActivate : [NologinGuard] },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule'}, 
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule'}, 
+  { path: 'registro', loadChildren: './componentes/registro/registro.module#RegistroPageModule'}, 
+  
 ];
 
 @NgModule({

@@ -1,6 +1,66 @@
-// App Styles
-// ----------------------------------------------------------------------------
-// Put style rules here that you want to apply to the entire application. These 
-// styles are for the entire app and not just one component. Additionally, this 
-// file can hold Sass mixins, functions, and placeholder classes to be imported 
-// and used throughout the application.
+
+  // agrego estilo para splas
+  .custom-overlay{
+    position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100000;
+    width: 100%;
+    background-color: rgb(125, 203, 248);
+    
+  }
+
+  .flb{
+    background: url("../assets/imagenes/splash.png") no-repeat center / cover;
+    height: 100%;  
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chat{
+    position: absolute;
+    z-index: -10;
+    top: 22%;
+    left: 20%;
+    animation-name: chateando;
+    animation-duration: 10s;
+
+  }
+
+ 
+
+  @keyframes chateando {
+    from {
+      top:22%;     
+      z-index: 99999999;
+      transform: scale(0.5)
+     
+    }20%{
+      top:22%;     
+      z-index: 99999999;
+      transform: scale(0.8)
+    }40%{
+      top:22%;  
+      transform: scale(0.5);
+      z-index: 99999999
+    }60%{
+      top:22%;  
+      z-index: 99999999;
+      transform: scale(0.8)
+    }80%{
+      top:22%;  
+      z-index: 99999999;
+      transform: scale(0.5)
+  
+    }to{
+      z-index: 99999999;
+      top:22%;
+      transform: scale(0.9)
+      // transform: rotate(-95deg)
+     
+    }
+    
+  }

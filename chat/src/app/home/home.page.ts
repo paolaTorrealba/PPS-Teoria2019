@@ -47,9 +47,8 @@ export class HomePage implements OnInit {
 
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Opciones',
-      buttons: [{
-        text: 'Desconectarse',
+       buttons: [{
+        text: 'Salir',
         role: 'destructive',
         icon: 'log-out',
         handler: () => {

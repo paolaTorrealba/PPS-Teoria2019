@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="new">
+    <ion-title style="text-align-last: center; font-size: x-large;">Conversando en el Aula</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login">
+    <div class="imgContainer"><img src="../../../assets/icon/icon-chat.png"></div>
+
+
+    <!-- <div class="defaultUsers">
+      <ion-chip color="warning" *ngFor="let usuario of defaultUsers" (click)="loginUsuario(usuario)">
+        <ion-label color="light">{{usuario.email}}</ion-label>
+      </ion-chip>
+    </div> -->
+    <br>
+    <ion-item id="defaultUsers" style=" width: min-content;padding-left: 20%;">
+      <ion-label>Usuarios</ion-label>
+      <ion-select okText="Aceptar" cancelText="Cancelar" [(ngModel)]="usuario" (ionChange)="setUsuarioDefault()">
+        <ion-select-option *ngFor="let usuario of defaultUsers" [value]="usuario">{{usuario.email}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <form class="login__form" [formGroup]="validations_form" (ngSubmit)="loginUsuario(validations_form.value)">
+      <div class="login__row" style="background-color: #00000070;">
+        <!-- <svg class="login__icon name svg-icon" viewBox="0 0 20 20"><path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" /></svg> -->
+        <!-- <img style="width: 10%;margin-left: 45%;" src="../../../assets/images/usu1.png"> -->
+        <img  style="width: 10%;" src="../../../assets/imagenes/avatar.png">
+        <ion-input value="{{ email }}"  type="text" class="login__input name" placeholder="Correo Electrónico" formControlName="email" required></ion-input>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.email">
+            <div style="color: transparent;" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="login__row"  style="background-color: #00000070;">
+        <!-- <svg class="login__icon pass svg-icon" viewBox="0 0 20 20"><path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" /></svg> -->
+        <img  style="width: 10%;" src="../../../assets/imagenes/contrasena.png">
+        <ion-input value="{{ password }}" type="password" class="login__input pass" placeholder="Contraseña" formControlName="password" required></ion-input>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.password">
+            <div class="error-message" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div><button class="button" style="color: currentColor;font-size: large;font-family: cursive;" 
+        type="submit"  [disabled]="!validations_form.valid">Ingresar</button></div>
+      <!-- <ion-button class="login__submit" type="submit"  [disabled]="!validations_form.valid">Ingresar</ion-button> -->
+      <label class="error-message">{{errorMessage}}</label>
+    </form>
+  </div>
+</ion-content>

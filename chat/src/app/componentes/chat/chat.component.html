@@ -1,11 +1,19 @@
 <ion-header>
-    <ion-toolbar >
-      <div *ngIf="colorCeleste" style="background-color: aquamarine;">
+    <ion-toolbar *ngIf="this.salaChat=='PPS-4A'" color="salaA" >
+      <div *ngIf="this.salaChat=='PPS-4A'" >
           <ion-button slot="start" fill="clear" (click)="closeChat()">
-            <ion-icon style="color:#fff; font-size: 25px" name="arrow-round-back"></ion-icon>
+            <ion-icon style="color:rgb(0, 31, 116); font-size: 25px" name="arrow-round-back"></ion-icon>
           </ion-button>
           <ion-title>{{chat.name}}</ion-title>
     </div>
+    </ion-toolbar>
+    <ion-toolbar *ngIf="this.salaChat=='PPS-4B'" color="salaB" >
+      <div *ngIf="this.salaChat=='PPS-4B'" >
+          <ion-button slot="start" fill="clear" (click)="closeChat()">
+            <ion-icon style="color:rgb(138, 90, 1); font-size: 25px" name="arrow-round-back"></ion-icon>
+          </ion-button>
+          <ion-title>{{chat.name}}</ion-title>
+      </div>
     </ion-toolbar>
 
   </ion-header>
@@ -13,12 +21,12 @@
   <ion-content padding> 
     <div *ngIf="room">
       <ion-card *ngFor="let mensaje of room.messages">
-        <ion-card-content style="margin-left: 30%;" *ngIf="mensaje.email==this.mail">
-            <p style="position: inherit; text-align: center;" >{{mensaje.content}}</p>
-            <p style="margin-left: 30%; font-family: inherit; color: #000000d8;">{{mensaje.date}}</p> 
+        <ion-card-content  *ngIf="mensaje.email==this.mail" style="margin-left: 10%; background-color: #97f671;">
+            <p style="text-align: end;font-size: 25px;font-family: sans-serif;" >{{mensaje.content}}</p>
+            <p style="margin-left: 30%; text-align: end; font-family: inherit; color: #000000d8;">{{mensaje.date}}</p> 
         </ion-card-content>
-        <ion-card-content style="background-color: rgb(224, 239, 241);" *ngIf="mensaje.email!=this.mail">
-            <p style="font-family: inherit; color: #1c8000cf;" >{{mensaje.nombre}}</p>
+        <ion-card-content  *ngIf="mensaje.email!=this.mail" style="width: 90%;background-color: #e9eee7;">
+            <p style="font-family: inherit; color: #1c8000cf;font-size: 25px;" >{{mensaje.nombre}}</p>
             <p>{{mensaje.content}}</p>
             <p style="font-family: inherit; color: #000000d8;">{{mensaje.date}}</p> 
         </ion-card-content>
