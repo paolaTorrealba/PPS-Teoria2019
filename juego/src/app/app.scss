@@ -1,6 +1,90 @@
-// App Styles
-// ----------------------------------------------------------------------------
-// Put style rules here that you want to apply to the entire application. These 
-// styles are for the entire app and not just one component. Additionally, this 
-// file can hold Sass mixins, functions, and placeholder classes to be imported 
-// and used throughout the application.
+
+  // agrego estilo para splash
+  .custom-overlay{
+    position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100000;
+    width: 100%;
+    background-color: rgb(123, 190, 143);
+    
+  }
+
+  .flb{
+    background: url("../assets/imagenes/splash.png") no-repeat center / cover;
+    height: 100%;  
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .game{
+    position: absolute;
+    z-index: -10;
+    top: 40%;
+    left: 20%; 
+    max-width: 60%;
+    animation-name: gamming;
+    animation-duration: 10s;
+
+  }
+
+ 
+
+  @keyframes gamming {
+    from {
+      top:27%;  
+      left:0%;   
+      z-index: 999999;
+     
+    }10%{
+        top:27%;  
+        left:40%;      
+        z-index: 99999999;
+    }20%{
+        top:55%;  
+        left:40%;      
+        z-index: 99999999;
+    }30%{
+        top: 45%;
+        left: 30%;      
+        z-index: 99999999;
+    }40%{
+        top: 45%;
+        left: 0%;     
+        z-index: 99999999;
+    }50%{
+        top: 45%;
+        left: 40%;    
+      z-index: 99999999;
+      
+    }60%{
+        top:27%;   
+      left:40%;   
+      z-index: 99999999
+    }70%{
+        top: 40%;
+        left: 20%; 
+      z-index: 99999999;
+      
+    }80%{
+        top: 40%;
+        left: 20%;
+      z-index: 99999999;
+      
+    }90%{
+        top: 40%;
+        left: 20%;     
+        z-index: 99999999;
+    }to{
+      z-index: 99999999;
+      top: 40%;
+      left: 20%; 
+    
+      // transform: rotate(-95deg)
+     
+    }
+    
+  }

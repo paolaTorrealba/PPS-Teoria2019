@@ -11,9 +11,14 @@ import { timer } from 'rxjs';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar) {
+  private splash= true;
+  private notificationAudio= new Audio("../assets/sonidos/inicio.mp3")
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar
+  ) {
     this.initializeApp();
-      this. reproducirSonido();
   }
 
   initializeApp() {
@@ -21,16 +26,20 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
+      if (this.splash){
+setTimeout(() => {
+  this.notificationAudio.play();
+  setTimeout(()=> {
+    this.pararAlarma();
+    this.splash = false;
+  }, 5650)
+}, 5300)
+      }
     });
   }
 
-   reproducirSonido(){
-    let sonido = new Audio();
-    sonido.src="assets/sonido/sonido.mp3";
-    sonido.load();
-    sonido.play();
-    timer(6000).subscribe(() =>  sonido.muted=true )
-    
-
+  pararAlarma() {
+    this.notificationAudio.pause();
+    this.notificationAudio.currentTime = 0;
   }
 }
