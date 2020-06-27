@@ -52,23 +52,29 @@ export class MujerMaravillaPage implements OnInit {
      if (!this.perdio){     
           this.interval = setInterval(() => {
             this.segundo++;   
-            if (this.minuto==0){
+            if (this.minuto==0){ //00:00:--
+              console.log("this.minuto==0",this.minuto, this.segundo)
               this.hora="00:"+this.minuto.toString() + '0:0'+this.segundo.toString(); 
             }
             else {
-              if (this.segundo<10)
+              if (this.segundo<10) //hasta 00:00:09
+                console.log("this.segundo<10", this.minuto, this.segundo)
                 this.hora="00:"+ "0"+this.minuto.toString()+":0"+this.segundo.toString();
             }       
-            if (this.segundo>=10){
-              this.hora="00:00:"+this.segundo.toString();
+            if (this.minuto<=9 && this.segundo>=10){
+              console.log("this.segundo>=10", this.minuto, this.segundo)
+              this.hora="00:0" + this.minuto +":"+this.segundo.toString();
             }
             if (this.segundo==60){
+              console.log("this.segundo==60", this.minuto, this.segundo)
               this.segundo=0;
               this.minuto++
               if (this.minuto<=9){
+                console.log("this.minuto<=9", this.minuto, this.segundo)
                 this.hora="00:"+ "0"+this.minuto.toString()+":0"+this.segundo.toString();  
               }
               else {
+                console.log("else", this.minuto, this.segundo)
                 this.hora="00:"+ this.minuto.toString()+":0"+this.segundo.toString();  
               }                    
             }
