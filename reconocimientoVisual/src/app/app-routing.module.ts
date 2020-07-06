@@ -3,13 +3,19 @@ import { PreloadAllModules, RouterModule, Routes , Router} from '@angular/router
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule' },
+  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule'},
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule'}, 
+  // { path: '', redirectTo: 'login', pathMatch: 'full' },
+  // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  // { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule' },
   { path: 'error', loadChildren: './componentes/error/error.module#ErrorPageModule' }, 
   { path: 'primera', loadChildren: './componentes/primera/primera.module#PrimeraPageModule' },
   { path: 'segunda', loadChildren: './componentes/segunda/segunda.module#SegundaPageModule' },
   { path: 'lista', loadChildren: './pages/lista/lista.module#ListaPageModule' },
-  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
+  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
+
+  // { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+
 
 ];
 

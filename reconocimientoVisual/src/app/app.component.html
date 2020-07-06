@@ -1,6 +1,9 @@
-<div *ngIf="showSplash" class="splash" >
-	<app-splash ></app-splash>
-</div>
-
-
-<router-outlet></router-outlet>
+<ion-app>  
+	<div class="custom-overlay" [style.display]="splash ? 'flex' : 'none'">
+		<div class="flb">
+		  <img class="visual" src="../assets/images/camara.png" alt="">
+		</div>		
+	</div>
+	<ion-router-outlet></ion-router-outlet>
+  </ion-app>
+  
