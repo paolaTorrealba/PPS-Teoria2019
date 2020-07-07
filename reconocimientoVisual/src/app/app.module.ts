@@ -10,15 +10,17 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 //importamos la variable de configuracion y el modulo de angularFire
 import { firebaseConfig} from "../environments/environment";
-import { AngularFireModule} from "@angular/fire";
+// import { AngularFireModule} from "@angular/fire";
 import { AngularFireAuthModule} from "@angular/fire/auth";
 import { RouterModule} from '@angular/router';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { SplashComponent } from './componentes/splash/splash.component';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
  import {AngularFirestoreModule,FirestoreSettingsToken } from '@angular/fire/firestore';
  import {FotoComponent} from './componentes/foto/foto.component';
+import { General } from './general';
 //agrego esto por el video
 
 
@@ -33,6 +35,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
   providers: [
     Camera, 
     StatusBar,
+    General,
     SplashScreen,
     ImagePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

@@ -45,10 +45,10 @@ export class UsuarioService {
 
   getAuthStateChanged() {
     return new Promise((resolve, reject) => {
-       const unsubscribe = this.afsAuth.auth.onAuthStateChanged(user => {
+       const unsubscribe = this.afsAuth.auth.onAuthStateChanged(usuario => {
           unsubscribe();
-          resolve(user);
-          console.log(user)
+          resolve(usuario);
+          console.log(usuario)
        }, reject);
     });
   }

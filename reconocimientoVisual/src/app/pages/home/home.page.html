@@ -1,4 +1,4 @@
-
+<!-- 
 <div *ngIf="mostrarHome" id="card__home" class="card">
     <div id="card-content">
       <div id="card-title">      
@@ -20,4 +20,12 @@
         </span>
        </button> 
   </div>
-  
+   -->
+   <ion-content>
+      <div class="login-wrap">
+        <div class="login-html">
+          <app-botones [type]="'lindas'" [photoUrl]="'../../../assets/img/casa_linda.png'" [destinationUrl]="'/main/camera/lindas'"></app-botones>
+          <app-botones [type]="'feas'" [photoUrl]="'../../../assets/img/casa_fea.png'" [destinationUrl]="'/main/camera/feas'"></app-botones>
+        </div>
+      </div>
+    </ion-content>

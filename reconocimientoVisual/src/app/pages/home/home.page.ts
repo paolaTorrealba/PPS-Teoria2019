@@ -10,21 +10,21 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss']
 })
 export class HomePage  {
- private selectedItem: any;
+//  private selectedItem: any;
  
-constructor(public navCtrl: NavController){
+// constructor(public navCtrl: NavController){
   
-}
-  mostrarHome=false;
-  ngOnInit() { 
-     timer(6100).subscribe(() => this.mostrarHome = true  )
-  }
-  fotoOK() {    
-    this.navCtrl.navigateForward("/primera");
-  }
-  fotoNOK() {    
-    this.navCtrl.navigateForward("/segunda");
-  }
+// }
+//   mostrarHome=false;
+//   ngOnInit() { 
+//      timer(6100).subscribe(() => this.mostrarHome = true  )
+//   }
+//   fotoOK() {    
+//     this.navCtrl.navigateForward("/primera");
+//   }
+//   fotoNOK() {    
+//     this.navCtrl.navigateForward("/segunda");
+//   }
 
  
 }

@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { HomePage } from './home.page';
-import { BotonesComponent } from 'src/app/componentes/botones/botones.component';
+import { FotoFeaPage } from './foto-fea.page';
+import { ComponentModule } from 'src/app/componentes/components.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: FotoFeaPage
   }
 ];
 
@@ -18,8 +18,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ComponentModule
   ],
-  declarations: [HomePage,BotonesComponent]
+  declarations: [FotoFeaPage]
 })
-export class HomePageModule {}
+export class FotoFeaPageModule {}
