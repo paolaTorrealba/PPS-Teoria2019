@@ -8,35 +8,44 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  bandera: boolean; //true: español / false: ingles
-
+  bandera: "espaniol";
+	btnTemas="";
+	btnTemasAgrandar="";
+	btnIdiomas="";
+  btnIdiomasAgrandar="";
   constructor(public router: Router) { 
 		let local_bandera = JSON.parse(localStorage.getItem('idioma'));
-		console.log(local_bandera);
+		console.log("local_bandera",local_bandera);
     if(local_bandera != null)
     {
       this.bandera = local_bandera;
     }else{
-      this.bandera = true;
+      this.bandera = "espaniol";
 		}
 		
 		console.log(this.bandera);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+		localStorage.setItem('idioma', this.bandera);
+	}
 
 
-  cambiarIdioma(bandera){
-  	if (this.bandera) {
-  		this.bandera = false;
-  		this.reproducir('english');
-      localStorage.setItem('idioma', JSON.stringify(this.bandera));
+  cambiarIdioma(item){
+		console.log("item", item)
+  	if (item=="espaniol") {
+			this.reproducir('espaniol');		
   	}
-  	else{
-  		this.bandera = true;
-  		this.reproducir('español');
-      localStorage.setItem('idioma', JSON.stringify(this.bandera));
-  	}
+	   else if (item=="ingles") {
+							this.reproducir('ingles');							
+	        }
+	 	      else  if (item=="portugues") {
+  		       this.reproducir('ingles');      
+		      }
+		console.log("setting local strorage");
+		this.bandera=item;
+		localStorage.setItem('idioma', JSON.stringify(this.bandera));
+
   }
 
   reproducir(nom_audio) {
@@ -47,7 +56,7 @@ export class HomeComponent implements OnInit {
   reproducirAudio(nom_audio){
   	//console.log(this.bandera);
   	//console.log(nom_audio);
-  	if(this.bandera)
+  	if(this.bandera=="espaniol")
   	{
   		switch (nom_audio) {
   			case "colores":
@@ -66,7 +75,8 @@ export class HomeComponent implements OnInit {
   				// code...
   				break;
   		}
-  	}else{
+		}else
+		 if (this.bandera=="ingles"){
   		switch (nom_audio) {
   			case "colores":
   				this.reproducir('colors');
@@ -83,12 +93,26 @@ export class HomeComponent implements OnInit {
   			default:
   				// code...
   				break;
-  			}
+				}
+			}else 
+			if (this.bandera=="portugues"){
+				switch (nom_audio) {
+					case "colores":
+						this.reproducir('colors');
+						localStorage.setItem('tipo_juego', "colores");
+						break;
+					case "numeros":
+						this.reproducir('numbers');
+						localStorage.setItem('tipo_juego', "numeros");
+						break;
+					case "animales":
+						this.reproducir('animals');
+						localStorage.setItem('tipo_juego', "animales");
+						break;
+					default:
+						// code...
+						break;
+					}
   	}
-    //console.log(localStorage.getItem('tipo_juego'));
-
-
   }
-
-
 }

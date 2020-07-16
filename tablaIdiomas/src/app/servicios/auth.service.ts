@@ -8,22 +8,15 @@ import { auth } from 'firebase/app';
 })
 export class AuthService {
 
-  constructor(private AFauth: AngularFireAuth, private router: Router) { }
+  constructor(private AFauth : AngularFireAuth) { }
 
-  login(email: string, password: string){
-    if(email == '' || password == '')
-    {
-      alert("Datos necesarios");
-    }
-    else{
-
-     this.AFauth.auth.signInWithEmailAndPassword(email, password).then(res =>{
-       console.log(res);
-       this.router.navigate(['home']);
-     }).catch(function(error){
-       console.log("Error logeando: " + error);
-       alert("Usuario o contraseña incorrectos");
-     })
-    }
-  }
+   login(email:string, password:string){
+       return new Promise((resolve, rejected)=> {
+         this.AFauth.auth.signInWithEmailAndPassword(email, password).then(user => {
+           resolve(user);
+                  
+         }).catch(err => rejected(err)) ;
+        });    
+     
+   }
 }

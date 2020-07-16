@@ -10,8 +10,8 @@ import { timer } from 'rxjs/observable/timer';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  
-  showSplash = true;
+  private splash= true;
+  private notificationAudio= new Audio("../assets/sonidos/inicio-idioma.mp3")
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -24,7 +24,23 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      timer(3000).subscribe(() => this.showSplash = false);
+
+      if (this.splash){
+setTimeout(() => {
+  this.notificationAudio.play();
+  setTimeout(()=> {
+    this.pararAlarma();
+    this.splash = false;
+  }, 650)
+}, 300)
+      }
     });
   }
+
+  pararAlarma() {
+    this.notificationAudio.pause();
+    this.notificationAudio.currentTime = 0;
+  }
 }
+
+

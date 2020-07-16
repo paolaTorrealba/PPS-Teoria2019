@@ -1,0 +1,67 @@
+
+<ion-content class="card-background-page" padding>
+    <!-- seleccion idioma -->				
+            <ion-fab  class="fab1" vertical="top" horizontal="start" edge slot="fixed">
+                <ion-fab-button>
+                  <ion-icon  *ngIf="bandera=='espaniol' "class="icon1" src="../../../assets/images/ispain.svg" ></ion-icon>
+                  <ion-icon  *ngIf="bandera=='ingles' "class="icon1" src="../../../assets/images/inglaterra.svg" ></ion-icon>
+                  <ion-icon  *ngIf="bandera=='portugues' "class="icon1" src="../../../assets/images/brasil.svg" ></ion-icon>
+                </ion-fab-button>
+                <ion-fab-list side="button">
+                  <ion-fab-button (click)="cambiarIdioma('espaniol')"><ion-icon name="logo-vimeo"></ion-icon>
+                   <img src="./assets/images/español.png" alt="" />
+                     </ion-fab-button>
+                  <ion-fab-button (click)="cambiarIdioma('ingles')"><ion-icon name="logo-vimeo"></ion-icon>
+                    <img  src="./assets/images/ingles.png" alt="" />
+                  </ion-fab-button>
+                  <ion-fab-button (click)="cambiarIdioma('portugues')"><ion-icon name="logo-vimeo"></ion-icon>
+                  <img  src="./assets/images/portugues.png" alt="" />
+                    </ion-fab-button>
+                </ion-fab-list>
+            </ion-fab>
+            <ion-icon class="icon1" ></ion-icon>
+    <!-- seleccion temas -->		
+            <!-- <ion-fab  class="fab1"  vertical="top" horizontal="end" edge slot="fixed">
+                <ion-fab-button>
+                  <ion-icon class="icon1" src="../assets/images/animales.svg"></ion-icon>
+                </ion-fab-button>
+                <ion-fab-list side="button">
+                  <ion-fab-button (click)="cambiarJuego('color')"><ion-icon name="logo-vimeo"></ion-icon>
+                  <img  src="./assets/images/colores.png" alt="" /></ion-fab-button>
+                  <ion-fab-button (click)="cambiarJuego('numero')"><ion-icon name="logo-vimeo"></ion-icon>
+                  <img  src="./assets/images/numeros.png" alt="" /></ion-fab-button>
+                  <ion-fab-button (click)="cambiarJuego('animal')"><ion-icon name="logo-vimeo"></ion-icon>
+                  <img  src="./assets/images/animales.png" alt="" /></ion-fab-button>
+                </ion-fab-list>
+            </ion-fab> -->
+   
+        <br>
+    
+          <div class="col-sm-2 col-md-12">
+              <button   id="colores" (click)="reproducirAudio('colores')"  >
+              <div class="sombreado">
+              <img  style="max-width: 55%; vertical-align: baseline;" src="./assets/images/colores.png" alt="" />     
+              </div> 
+            </button>
+          </div>
+    
+          <div class="col-sm-2 col-md-12">
+              <button  id="numeros" (click)="reproducirAudio('numeros')" >
+              <div class="sombreado">
+              <img style="max-width: 55%; vertical-align: baseline;" src="./assets/images/numeros.png" alt="" />  
+            </div>    
+            </button>
+          </div>
+    
+          <div class="col-sm-2 col-md-12">
+              <button id="animales" (click)="reproducirAudio('animales')" >
+              <div class="sombreado">
+              <img style="max-width: 55%; vertical-align: baseline;" src="./assets/images/animales.png" alt=""/>
+            </div>      
+            </button>
+          </div>
+     
+    
+      </ion-content>
+    
+    <router-outlet></router-outlet>

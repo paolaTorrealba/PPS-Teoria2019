@@ -1,0 +1,66 @@
+
+  // agrego estilo para splas
+  .custom-overlay{
+    position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100000;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    
+  }
+
+  .flb{
+    background: url("../assets/images/splash.jpg") ;
+    height: 100%;  
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .idioma{
+    position: absolute;
+    z-index: -10;
+    top: 22%;
+    left: 20%;
+    animation-name: hablando;
+    animation-duration: 10s;
+
+  }
+
+ 
+
+  @keyframes hablando {
+    from {
+      top:22%;     
+      z-index: 99999999;
+      transform: scale(0.5)
+     
+    }20%{
+      top:22%;     
+      z-index: 99999999;
+      transform: scale(0.8)
+    }40%{
+      top:22%;  
+      transform: scale(0.5);
+      z-index: 99999999
+    }60%{
+      top:22%;  
+      z-index: 99999999;
+      transform: scale(0.8)
+    }80%{
+      top:22%;  
+      z-index: 99999999;
+      transform: scale(0.5)
+  
+    }to{
+      z-index: 99999999;
+      top:22%;
+      transform: scale(0.9)
+      // transform: rotate(-95deg)
+     
+    }
+    
+  }

@@ -117,3 +117,115 @@
        background-color: #a9a9a98f !important;
   }
 
+  div.temas {
+    position: absolute;
+    top: 20px;
+    left: 380px;
+    z-index: 3;
+  
+    button {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        color: rgb(253, 251, 251);   
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+        background-color: rgba(3, 118, 153, 0.911);   
+    }
+  
+    div {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        color: rgb(255, 255, 255);
+        transition: .5s;
+        overflow: hidden;
+  
+        button {
+            display: block;
+            width: 100%;
+            height: 40px;
+            border-radius: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .4);
+            text-align: left;
+            background-color: rgba(242, 242, 248, 0.13);   
+            padding-left: 10px;
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.767);
+        }
+  
+        button:last-child {
+            border-bottom: none;
+        }
+    }
+  
+    .agrandarTemas {
+        width: 150px;
+        border-radius: 0;
+        height: 400px;
+    }
+  }
+  div.idiomas {
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    z-index: 3;
+  
+    button {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        color: rgb(253, 251, 251);   
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+        background-color: rgba(3, 118, 153, 0.911);   
+    }
+  
+    div {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        color: rgb(255, 255, 255);
+        transition: .5s;
+        overflow: hidden;
+  
+        button {
+            display: block;
+            width: 100%;
+            height: 40px;
+            border-radius: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .4);
+            text-align: left;
+            background-color: rgba(242, 242, 248, 0.13);   
+            padding-left: 10px;
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.767);
+        }
+  
+        button:last-child {
+            border-bottom: none;
+        }
+    }
+  
+    .agrandarIdiomas {
+        width: 150px;
+        border-radius: 0;
+        height: 400px;
+    }
+  }
+
+  .icon1{
+    font-size: 100px !important;
+    background-color: white;
+  }
+ .fab1{
+     margin-top: 50px;
+ }

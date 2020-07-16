@@ -1,7 +1,39 @@
 
 <ion-content class="card-background-page" padding>
-	
-			<div class="col-sm-2 col-md-12">
+<!-- seleccion idioma -->				
+				<ion-fab  class="fab1" vertical="top" horizontal="start" edge slot="fixed">
+						<ion-fab-button>
+						  <ion-icon class="icon1" src="../assets/images/ispain.svg" ></ion-icon>
+						</ion-fab-button>
+						<ion-fab-list side="button">
+						  <ion-fab-button (click)="cambiarIdioma('espaniol')"><ion-icon name="logo-vimeo"></ion-icon>
+							 <img  src="./assets/images/español.png" alt="" />
+					   	  </ion-fab-button>
+						  <ion-fab-button (click)="cambiarIdioma('ingles')"><ion-icon name="logo-vimeo"></ion-icon>
+								<img  src="./assets/images/ingles.png" alt="" />
+						  </ion-fab-button>
+						  <ion-fab-button (click)="cambiarIdioma('portugues')"><ion-icon name="logo-vimeo"></ion-icon>
+							<img  src="./assets/images/portugues.png" alt="" />
+					      </ion-fab-button>
+						</ion-fab-list>
+				</ion-fab>
+				<ion-icon class="icon1" ></ion-icon>
+<!-- seleccion temas -->		
+				<ion-fab  class="fab1"  vertical="top" horizontal="end" edge slot="fixed">
+						<ion-fab-button>
+						  <ion-icon class="icon1" src="../assets/images/animales.svg"></ion-icon>
+						</ion-fab-button>
+						<ion-fab-list side="button">
+						  <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon>
+							<img  src="./assets/images/colores.png" alt="" /></ion-fab-button>
+						  <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon>
+							<img  src="./assets/images/numeros.png" alt="" /></ion-fab-button>
+						  <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon>
+							<img  src="./assets/images/animales.png" alt="" /></ion-fab-button>
+						</ion-fab-list>
+				</ion-fab>
+<!-- fin seleccion idioma -->
+			<!-- <div class="col-sm-2 col-md-12">
 				<button  *ngIf="bandera" id="idioma-esp" (mousedown)="cambiarIdioma(bandera)" >
 					<div class="sombreado"></div>
 					<img  src="./assets/images/español.png" alt="" />      
@@ -13,7 +45,7 @@
 				  <div class="sombreado"></div>
 			  	<img  src="./assets/images/ingles.png" alt="" />      
 		 	 </button>
-	  	</div>
+	  	</div> -->
 		<br>
 
 			<div class="col-sm-2 col-md-12">

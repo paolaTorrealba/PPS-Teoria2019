@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule} from "@angular/fire";
 import { AngularFireAuthModule} from "@angular/fire/auth";
-import { LoginComponent } from './componentes/login/login.component';
+// import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { JuegoComponent } from './componentes/juego/juego.component';
 import { AnimalComponent } from './componentes/animal/animal.component';
@@ -28,7 +28,6 @@ import { NumeroComponent } from './componentes/numero/numero.component';
 
 @NgModule({
   declarations: [AppComponent,
-    LoginComponent,
     HomeComponent,
     NumeroComponent,
     SplashComponent,
