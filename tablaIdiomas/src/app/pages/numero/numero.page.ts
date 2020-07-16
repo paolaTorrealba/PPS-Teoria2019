@@ -45,7 +45,7 @@ export class NumeroPage implements OnInit {
   }
 
   reproducirAudio(nom_audio){
-    console.log("audio-bandera", this.bandera, nom_audio)
+   console.log("reproducirAudio, ",nom_audio, this.bandera)
     switch (this.tipo_juego) {
       case "numeros":
         if (this.bandera=="espaniol") {
@@ -141,21 +141,40 @@ cambiarIdioma(item){
 
 
 cambiarJuego(item){
-  console.log("cambio juego")
-  console.log("item", item)
-  if (item=="animal") {
-    this.reproducir('animales');	
-    this.navCtrl.navigateForward('/animal'); 	
+  console.log("cambiarJuego, item:", item)
+
+  this.tipo_juego=item;
+  if (item=="animales") {
+    if (this.bandera=="espaniol")
+        this.reproducir('animales');
+    if (this.bandera=="ingles")
+        this.reproducir('animals'); 
+    if (this.bandera=="portugues")
+        this.reproducir('animalesP');       
+    localStorage.setItem('tipo_juego', 'animales'); 		
+    this.navCtrl.navigateForward('/animal');
   }
-   else if (item=="color") {
-            this.reproducir('colores');	
-            this.navCtrl.navigateForward('/color'); 						
+   else if (item=="colores") {
+            if (this.bandera=="espaniol")
+              this.reproducir('colores');
+            if (this.bandera=="ingles")
+              this.reproducir('colors'); 
+            if (this.bandera=="portugues")
+              this.reproducir('coloresP');
+            localStorage.setItem('tipo_juego', 'colores');
+            this.navCtrl.navigateForward('/color');						
         }
-         else  if (item=="numero") {
-           this.reproducir('numeros');     
-           this.navCtrl.navigateForward('/numero');  
-        }
-  console.log("setting local strorage");
- 
+         else  if (item=="numeros") {
+          if (this.bandera=="espaniol")
+             this.reproducir('numeros');
+          if (this.bandera=="ingles")
+             this.reproducir('numbers'); 
+           if (this.bandera=="portugues")
+              this.reproducir('numerosP');
+           localStorage.setItem('tipo_juego', 'numeros'); 
+           this.navCtrl.navigateForward('/numero');    
+        }	
 }
+
+
 }

@@ -40,27 +40,50 @@ export class AnimalPage implements OnInit {
   }
 
   cambiarJuego(item){
-		console.log("cambio juego")
-		console.log("item", item)
-  	if (item=="animal") {
-      this.reproducir('animales');		
+    console.log("cambiarJuego, item:", item)
+
+    this.tipo_juego=item;
+  	if (item=="animales") {
+      if (this.bandera=="espaniol")
+          this.reproducir('animales');
+      if (this.bandera=="ingles")
+          this.reproducir('animals'); 
+      if (this.bandera=="portugues")
+          this.reproducir('animalesP');       
+      localStorage.setItem('tipo_juego', 'animales'); 		
       this.navCtrl.navigateForward('/animal');
   	}
-	   else if (item=="color") {
-              this.reproducir('colores');	
+	   else if (item=="colores") {
+              if (this.bandera=="espaniol")
+                this.reproducir('colores');
+              if (this.bandera=="ingles")
+                this.reproducir('colors'); 
+              if (this.bandera=="portugues")
+                this.reproducir('coloresP');
+              localStorage.setItem('tipo_juego', 'colores');
               this.navCtrl.navigateForward('/color');						
 	        }
-	 	      else  if (item=="numero") {
-             this.reproducir('numeros');  
+	 	      else  if (item=="numeros") {
+            if (this.bandera=="espaniol")
+               this.reproducir('numeros');
+            if (this.bandera=="ingles")
+               this.reproducir('numbers'); 
+             if (this.bandera=="portugues")
+                this.reproducir('numerosP');
+             localStorage.setItem('tipo_juego', 'numeros'); 
              this.navCtrl.navigateForward('/numero');    
 		      }
 		console.log("setting local strorage");
 	
-	}
+  }
+  
+  // nom_audio es el boton del centro
   reproducirAudio(nom_audio){ 
+    console.log("reproducirAudio--> ",nom_audio, this.bandera)
     switch (this.tipo_juego) {
       case "animales":
       if (this.bandera=="espaniol") {
+          console.log("bandera=español")
           switch (nom_audio) {
             case "btn1":
               this.reproducir('leon');
@@ -78,11 +101,12 @@ export class AnimalPage implements OnInit {
               this.reproducir('conejo');
               break;
             default:
-              // code...
+              
               break;
           }
         }
         if (this.bandera=="ingles") {
+          console.log("bandera=ingles")
           switch (nom_audio) {
             case "btn1":
               this.reproducir('lion');
@@ -105,6 +129,7 @@ export class AnimalPage implements OnInit {
           }
         }
         if (this.bandera=="portugues") {
+          console.log("bandera=portugues")
           switch (nom_audio) {
             case "btn1":
               this.reproducir('leonP');

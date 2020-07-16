@@ -8,7 +8,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
+	public tipo_juego: string;
   public bandera: String = "espaniol";
 	public btnTemas="";
 	public btnTemasAgrandar="";
@@ -51,22 +51,41 @@ export class HomePage implements OnInit {
   }
 
 	cambiarJuego(item){
-		console.log("cambio juego")
-		console.log("item", item)
-  	if (item=="animal") {
-			this.reproducir('animales');		
-  	}
-	   else if (item=="color") {
-							this.reproducir('colores');							
-	        }
-	 	      else  if (item=="numero") {
-  		       this.reproducir('numeros');      
-		      }
-		console.log("setting local strorage");
-		// this.bandera=item;
-		// localStorage.setItem('juegoIdioma', JSON.stringify(this.bandera));
-
+		console.log("cambiarJuego, item:", item)
+	
+		this.tipo_juego=item;
+		if (item=="animales") {
+			if (this.bandera=="espaniol")
+					this.reproducir('animales');
+			if (this.bandera=="ingles")
+					this.reproducir('animals'); 
+			if (this.bandera=="portugues")
+					this.reproducir('animalesP');       
+			localStorage.setItem('tipo_juego', 'animales'); 		
+			this.navCtrl.navigateForward('/animal');
+		}
+		 else if (item=="colores") {
+							if (this.bandera=="espaniol")
+								this.reproducir('colores');
+							if (this.bandera=="ingles")
+								this.reproducir('colors'); 
+							if (this.bandera=="portugues")
+								this.reproducir('coloresP');
+							localStorage.setItem('tipo_juego', 'colores');
+							this.navCtrl.navigateForward('/color');						
+					}
+					 else  if (item=="numeros") {
+						if (this.bandera=="espaniol")
+							 this.reproducir('numeros');
+						if (this.bandera=="ingles")
+							 this.reproducir('numbers'); 
+						 if (this.bandera=="portugues")
+								this.reproducir('numerosP');
+						 localStorage.setItem('tipo_juego', 'numeros'); 
+						 this.navCtrl.navigateForward('/numero');    
+					}	
 	}
+	
 	
 
   cambiarIdioma(item){
