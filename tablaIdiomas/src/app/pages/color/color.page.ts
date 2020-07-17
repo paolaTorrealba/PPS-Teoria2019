@@ -32,7 +32,7 @@ export class ColorPage implements OnInit {
           this.img_source2 = "./assets/images/verde.png";
           this.img_source3 = "./assets/images/naranja.png";
           this.img_source4 = "./assets/images/azul.png";
-          this.img_source5 = "./assets/images/rojo1.png";
+          this.img_source5 = "./assets/images/rojo.png";
         break;
      
       default:

@@ -96,14 +96,7 @@ ion-icon {
   .card-subtitle:last-child { top: 60%; }
 }
 
-.sombreado {
-  width: 100%;
-  height: 100%;
-  // position: absolute;
-  z-index: -1;
-  background-color: black;
-  opacity: .6;
-}
+
 
 .boton {
   background-color: #a9a9a98f;
@@ -123,3 +116,24 @@ ion-icon {
   .fab1{
    margin-top: 50px;
   }
+
+  ion-content{ 
+    div	{
+        div {
+            background-color: #6bcb42;
+            button {
+                div{ 
+                    img{
+                      height: 15vh;
+                      margin-top: 9px;
+                    }
+                  }
+                }
+            }
+      }
+  }
+
+  .icon2{
+    font-size: 100px !important;
+  } 
+

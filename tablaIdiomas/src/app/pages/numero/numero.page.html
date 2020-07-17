@@ -1,3 +1,4 @@
+<ion-header  style="background-color: rgb(185, 95, 221);">
 <!-- seleccion idioma -->				
 <ion-fab  class="fab1" vertical="top" horizontal="start" edge slot="fixed">
         <ion-fab-button>
@@ -17,7 +18,7 @@
             </ion-fab-button>
         </ion-fab-list>
     </ion-fab>
-    <ion-icon class="icon1" ></ion-icon>
+    <ion-icon class="icon2" ></ion-icon>
 <!-- seleccion temas -->		
     <ion-fab  class="fab1"  vertical="top" horizontal="end" edge slot="fixed">
         <ion-fab-button>
@@ -34,13 +35,13 @@
           <img  src="./assets/images/animales.png" alt="" /></ion-fab-button>
         </ion-fab-list>
     </ion-fab>
-
+  </ion-header>
 <br>
 <ion-content class="card-background-page" padding>
     <div class="row">	
     <div class="col-sm-2 col-md-12">
         <button (click)="reproducirAudio('btn1')">
-            <div class="sombreado">
+            <div >
             <img id="img-btn1" src="{{img_uno}}" alt="">   
           </div>  
          </button>
@@ -48,7 +49,7 @@
 
     <div class="col-sm-2 col-md-12">
         <button  (click)="reproducirAudio('btn2')">
-            <div class="sombreado">
+            <div >
             <img id="img-btn1" src="{{img_dos}}" alt="">    
           </div> 
          </button>
@@ -56,7 +57,7 @@
 
     <div class="col-sm-2 col-md-12">
         <button  (click)="reproducirAudio('btn3')">
-            <div class="sombreado">
+            <div>
             <img id="img-btn1" src="{{img_tres}}" alt="">     
           </div>
          </button>
@@ -64,15 +65,13 @@
 
     <div class="col-sm-2 col-md-12">
         <button  (click)="reproducirAudio('btn4')">
-            <div class="sombreado"></div>
-            <img id="img-btn1" src="{{img_cuatro}}" alt="">     
+            <div > <img id="img-btn1" src="{{img_cuatro}}" alt=""> </div>
          </button>
     </div>
 
     <div class="col-sm-2 col-md-12">
         <button (click)="reproducirAudio('btn5')">
-            <div class="sombreado"></div>
-            <img id="img-btn1" src="{{img_cinco}}" alt="">     
+            <div> <img id="img-btn1" src="{{img_cinco}}" alt="">   </div>  
          </button>
     </div>
   </div>
