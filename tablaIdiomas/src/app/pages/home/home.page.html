@@ -1,5 +1,5 @@
+<ion-header  style="background-color: #3F51B5">
 
-<ion-content class="card-background-page" padding>
     <!-- seleccion idioma -->				
             <ion-fab  class="fab1" vertical="top" horizontal="start" edge slot="fixed">
                 <ion-fab-button>
@@ -19,11 +19,13 @@
                     </ion-fab-button>
                 </ion-fab-list>
             </ion-fab>
-            <ion-icon class="icon1" ></ion-icon>
+            <ion-icon class="icon2"></ion-icon>
     <!-- seleccion temas -->		
-            <!-- <ion-fab  class="fab1"  vertical="top" horizontal="end" edge slot="fixed">
+            <ion-fab  class="fab1"  vertical="top" horizontal="end" edge slot="fixed">
                 <ion-fab-button>
-                  <ion-icon class="icon1" src="../assets/images/animales.svg"></ion-icon>
+                  <ion-icon  *ngIf="tipo_juego=='animales' "class="icon1" src="../../../assets/images/animales.svg" ></ion-icon>
+                  <ion-icon  *ngIf="tipo_juego=='colores' "class="icon1" src="../../../assets/images/colores.svg" ></ion-icon>
+                  <ion-icon  *ngIf="tipo_juego=='numeros' "class="icon1" src="../../../assets/images/numeros.svg" ></ion-icon>
                 </ion-fab-button>
                 <ion-fab-list side="button">
                   <ion-fab-button (click)="cambiarJuego('color')"><ion-icon name="logo-vimeo"></ion-icon>
@@ -33,14 +35,14 @@
                   <ion-fab-button (click)="cambiarJuego('animal')"><ion-icon name="logo-vimeo"></ion-icon>
                   <img  src="./assets/images/animales.png" alt="" /></ion-fab-button>
                 </ion-fab-list>
-            </ion-fab> -->
-   
+            </ion-fab>
+          </ion-header> 
         <br>
-    
+        <ion-content class="card-background-page" padding>
           <div class="col-sm-2 col-md-12">
               <button   id="colores" (click)="cambiarJuego('colores')"  >
               <div class="sombreado">
-              <img  style="max-width: 55%; vertical-align: baseline;" src="./assets/images/colores.png" alt="" />     
+              <img  style=" vertical-align: baseline;" src="./assets/images/colores.png" alt="" />     
               </div> 
             </button>
           </div>
@@ -48,7 +50,7 @@
           <div class="col-sm-2 col-md-12">
               <button  id="numeros" (click)="cambiarJuego('numeros')" >
               <div class="sombreado">
-              <img style="max-width: 55%; vertical-align: baseline;" src="./assets/images/numeros.png" alt="" />  
+              <img style=" vertical-align: baseline;" src="./assets/images/numeros.png" alt="" />  
             </div>    
             </button>
           </div>
@@ -56,7 +58,7 @@
           <div class="col-sm-2 col-md-12">
               <button id="animales" (click)="cambiarJuego('animales')" >
               <div class="sombreado">
-              <img style="max-width: 55%; vertical-align: baseline;" src="./assets/images/animales.png" alt=""/>
+              <img style=" vertical-align: baseline;" src="./assets/images/animales.png" alt=""/>
             </div>      
             </button>
           </div>

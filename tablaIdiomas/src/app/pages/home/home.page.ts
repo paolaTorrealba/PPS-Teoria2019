@@ -8,7 +8,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-	public tipo_juego: string;
+	public tipo_juego: String = "animales";
   public bandera: String = "espaniol";
 	public btnTemas="";
 	public btnTemasAgrandar="";
@@ -29,22 +29,30 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.guardarBandera(this.bandera);
+		this.guardarBandera(this.bandera);
+		this.guardarTema(this.tipo_juego)
 		
 	}
+	guardarTema(item){	
+		if (item=== "animales"){			
+		 localStorage.setItem('tipo_juego', 'animales');
+		}
+		if (item=== "numeros"){		 
+		 localStorage.setItem('tipo_juego', 'numeros');
+		}
+		if (item=== "colores"){		
+			localStorage.setItem('tipo_juego', 'colores');
+		}
+	}
 
-  guardarBandera(item){
-		console.log("cambiar bandera")
-   if (item=== "espaniol"){
-     console.log("guardo la banderaespañola")
+  guardarBandera(item){	
+   if (item=== "espaniol"){     
     localStorage.setItem('idioma', 'espaniol');
    }
-   if (item=== "ingles"){
-    console.log("guardo la ingles")
+   if (item=== "ingles"){    
     localStorage.setItem('idioma', 'ingles');
    }
-   if (item=== "portugues"){
-     console.log("guardo la portugues")
+   if (item=== "portugues"){     
      localStorage.setItem('idioma', 'portugues');
    }
     
