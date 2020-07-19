@@ -6,6 +6,7 @@
 
 <ion-content>
   <div class="login">
+    <br>
     <div class="imgContainer"><img src="../../../assets/icon/icon-chat.png"></div>
 
 
@@ -47,9 +48,13 @@
           </ng-container>
         </div>
       </div>
-      <div><button class="button" style="color: currentColor;font-size: large;font-family: cursive;" 
-        type="submit"  [disabled]="!validations_form.valid">Ingresar</button></div>
-      <!-- <ion-button class="login__submit" type="submit"  [disabled]="!validations_form.valid">Ingresar</ion-button> -->
+      <div>
+        <button class="button" 
+                style="color: currentColor;font-size: large;font-family: sans-serif;;" 
+                type="submit"  
+                [disabled]="!validations_form.valid">Ingresar</button>
+      </div>
+     
       <label class="error-message">{{errorMessage}}</label>
     </form>
   </div>

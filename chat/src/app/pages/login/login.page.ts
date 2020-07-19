@@ -26,6 +26,7 @@ export class LoginPage implements OnInit {
     
   ) {
     console.log("estoy en el contructor de login")
+   
   }
  
   ngOnInit() {
@@ -77,6 +78,8 @@ export class LoginPage implements OnInit {
     this.authService.loginUser(value)
     .then(res => {
       this.errorMessage = "";
+      console.log("guardo userChat", this.email)
+      localStorage.setItem("userChat",this.email);
       this.navCtrl.navigateForward('/home');
     }, err => {
       this.errorMessage = err.message;

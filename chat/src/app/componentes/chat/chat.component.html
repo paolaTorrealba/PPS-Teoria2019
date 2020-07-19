@@ -21,14 +21,31 @@
   <ion-content padding> 
     <div *ngIf="room">
       <ion-card *ngFor="let mensaje of room.messages">
-        <ion-card-content  *ngIf="mensaje.email==this.mail" style="margin-left: 10%; background-color: #97f671;">
-            <p style="text-align: end;font-size: 25px;font-family: sans-serif;" >{{mensaje.content}}</p>
-            <p style="margin-left: 30%; text-align: end; font-family: inherit; color: #000000d8;">{{mensaje.date}}</p> 
+        <ion-card-content  *ngIf="mensaje.email==this.mail"
+                            style="background-color: #97f671;
+                                   margin-left: 10%;">
+            <p style="text-align: end;
+                      font-size: 25px;
+                      font-family: inherit;
+                      color: #000000d8;">{{mensaje.content}}</p>
+            <p style="margin-left: 30%;
+                      text-align: end;
+                      font-family: inherit;
+                      color: #555454ed;">{{mensaje.date}}</p> 
         </ion-card-content>
-        <ion-card-content  *ngIf="mensaje.email!=this.mail" style="width: 90%;background-color: #e9eee7;">
-            <p style="font-family: inherit; color: #1c8000cf;font-size: 25px;" >{{mensaje.nombre}}</p>
-            <p>{{mensaje.content}}</p>
-            <p style="font-family: inherit; color: #000000d8;">{{mensaje.date}}</p> 
+        <ion-card-content  *ngIf="mensaje.email!=this.mail" 
+                            style="background-color: #e5efe1;
+                                   margin-right: 10%;">
+            <p style="font-size: 21px;
+                      font-family: inherit;
+                      color: #1c8000cf;
+                      font-size: 25px;" >{{mensaje.nombre}}</p>
+            <p style="font-family: inherit;
+                      color: #201f1fd2;
+                      font-size: 25px;" >{{mensaje.content}}</p>
+            <p style="font-family: inherit;
+                      font-size: 15px;
+                      color: #555454ed;">{{mensaje.date}}</p> 
         </ion-card-content>
       </ion-card>
     </div>
